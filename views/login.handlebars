@@ -1,63 +1,76 @@
-<div class="flex flex-row gap-x-64 justify-center">
-  <div class="flex flex-col w-96">
-    <h2 class="text-4xl font-bold text-center mb-8">Login</h2>
+<main
+  class="mt-24 min-h-fit flex w-full items-center justify-center text-white gap-x-24"
+>
+  <section class="flex w-[30rem] flex-col space-y-10">
+    <div class="text-center text-4xl font-medium">Log In</div>
 
-    <form class="login-form">
-
-      <label class="font-bold" for="email-login">Email:</label>
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
+    >
       <input
-        class="w-full p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none"
         type="text"
-        id="email-login"
+        placeholder="Email or Username"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
       />
+    </div>
 
-      <label class="font-bold" for="password-login">Password:</label>
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
+    >
       <input
-        class="w-full p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none"
         type="password"
-        id="password-login"
+        placeholder="Password"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
       />
+    </div>
 
-      <button
-        class="border border-2 font-bold border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800"
-        type="submit"
-      >Login</button>
+    <button
+      class="transform rounded-sm bg-indigo-600 py-2 font-bold duration-300 hover:bg-indigo-400"
+    >
+      LOG IN
+    </button>
 
-    </form>
-  </div>
-  <div class="flex flex-col w-96">
-    <h2 class="text-4xl font-bold text-center mb-8">Sign Up</h2>
+    
+  </section>
+  <h3 class="font-semibold italic"> OR </h3>
+  <section class="flex w-[30rem] flex-col space-y-10">
+    <div class="text-center text-4xl font-medium">Create an Account</div>
 
-    <form class="signup-form">
-
-      <label class="font-bold" for="name-signup">Name:</label>
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
+    >
       <input
-        class="w-full p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none"
         type="text"
-        id="name-signup"
+        placeholder="Display Name"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
       />
-
-      <label class="font-bold" for="email-signup">Email:</label>
+    </div>
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
+    >
       <input
-        class="w-full p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none"
         type="text"
-        id="email-signup"
+        placeholder="Email or Username"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
       />
+    </div>
 
-      <label class="font-bold" for="password-signup">Password:</label>
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
+    >
       <input
-        class="w-full p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none"
         type="password"
-        id="password-signup"
+        placeholder="Password"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
       />
+    </div>
 
-      <button
-        class="border border-2 font-bold border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800"
-        type="submit"
-      >Sign up</button>
+    <button
+      class="transform rounded-sm bg-indigo-600 py-2 font-bold duration-300 hover:bg-indigo-400"
+    >
+      CREATE ACCOUNT
+    </button>
 
-    </form>
-  </div>
-</div>
-
-<script src="./js/login.js"></script>
+    
+  </section>
+</main>

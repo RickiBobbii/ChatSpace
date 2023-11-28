@@ -7,33 +7,33 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
-  <body class="bg-slate-100 text-slate-800">
+  <body class="bg-gray-900 text-gray-300">
     <header
-      class="flex justify-between items-center p-8 bg-slate-200 drop-shadow-sm border-b-4 border-b-slate-600"
+      class="flex justify-between items-center p-8 bg-gray-400 drop-shadow-sm border-b-4 border-b-slate-600"
     >
-      <h1 class="transition-all duration-200 transform hover:scale-105">
-        <a class="text-5xl font-bold" href="/">Blog Site</a>
+      <h1>
+        <a class="text-5xl font-bold text-gray-900" href="/">ChatSpace</a>
       </h1>
       <nav class="flex flex-row items-center gap-2">
         {{#if logged_in}}
           <button
-            class="border-2 font-bold border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
+            class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
           >
             <a href="/profile">Profile</a>
           </button>|
           <button
-            class="border-2 font-bold border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
+            class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
             id="logout"
           >Logout</button>
         {{else}}
           <a
-            class="border-2 font-bold border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
+            class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
             href="/login"
           >Login</a>
         {{/if}}
       </nav>
     </header>
-    <main class="w-7/12 mt-5 mx-auto max-w-4xl">
+    <main class="w-7/12 mx-auto max-w-4xl">
       {{{body}}}
     </main>
     {{#if logged_in}}
