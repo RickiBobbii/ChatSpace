@@ -30,7 +30,7 @@
     "no-redeclare": "error",
     "brace-style": "error",
     "indent": ["error", 2],
-    "quotes": ["error", "double"],
+    "quotes": ["double"],
     "semi": ["error", "always"],
     "radix": "off"
   },
