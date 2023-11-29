@@ -8,7 +8,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
       window.location.href.charAt(window.location.href.length - 1) ===
       chatroom.id
     ) {
-      socket.emit("join", "New Room");
+      socket.emit("join", `Room: ${chatroom.id}`);
       return;
     } else {
       document.location.replace(chatroom.href);
