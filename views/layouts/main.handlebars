@@ -33,13 +33,13 @@
         {{/if}}
       </nav>
     </header>
-    <div class="flex flex-row h-[calc(100vh-8rem)] items-center">
+    <div class="flex flex-row h-[calc(100vh-8rem)]">
       {{#if logged_in}}
         <aside
           class="bg-slate-200 text-slate-800 rounded-sm h-full w-2/12 flex flex-col items-center justify-center"
         >
           {{#each chatrooms as |chatroom|}}
-            <a href="chatroom/{{chatroom.id}}">
+            <a class="chatrooms" id="{{id}}" href="../chatroom/{{chatroom.id}}">
               <p>{{chatroom.title}}</p>
             </a>
           {{/each}}
@@ -52,6 +52,9 @@
     {{#if logged_in}}
       {{! <script src="/js/logout.js"></script> }}
     {{/if}}
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
   </body>
 
 </html>
