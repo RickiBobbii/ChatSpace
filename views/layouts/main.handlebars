@@ -19,25 +19,38 @@
           <button
             class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
           >
-            <a href="/profile">Profile</a>
+            <a href="/profile">PROFILE</a>
           </button>|
           <button
             class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
             id="logout"
-          >Logout</button>
+          ><a href="/login">LOGOUT</a></button>
         {{else}}
           <a
             class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
-            href="/login"
-          >Login</a>
+            href="/testing"
+          >LOGIN</a>
         {{/if}}
       </nav>
     </header>
-    <main class="w-7/12 mx-auto max-w-4xl">
-      {{{body}}}
-    </main>
+    <div class="flex flex-row h-[calc(100vh-8rem)] items-center">
+      {{#if logged_in}}
+        <aside
+          class="bg-slate-200 text-slate-800 rounded-sm h-full w-2/12 flex flex-col items-center justify-center"
+        >
+          {{#each chatrooms as |chatroom|}}
+            <a href="chatroom/{{chatroom.id}}">
+              <p>{{chatroom.title}}</p>
+            </a>
+          {{/each}}
+        </aside>
+      {{/if}}
+      <main class="w-7/12 mx-auto max-w-4xl">
+        {{{body}}}
+      </main>
+    </div>
     {{#if logged_in}}
-      <script src="/js/logout.js"></script>
+      {{! <script src="/js/logout.js"></script> }}
     {{/if}}
   </body>
 
