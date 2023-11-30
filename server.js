@@ -47,8 +47,6 @@ app.use(routes);
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
-  // socket.emit("rooms", rooms);
-
   socket.on("join", function (room) {
     socket.join(room);
     socket.room = room;
@@ -56,7 +54,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("chat", function (message) {
-    io.to(socket.room).emit("chat", message);
+    socket.to(socket.room).emit("chat", message);
 
     console.log(message);
   });

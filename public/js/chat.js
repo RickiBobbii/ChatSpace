@@ -16,7 +16,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   });
 });
 
-let uname = "username";
+let uname = "Other User";
 socket.emit("newuser", uname);
 
 app
