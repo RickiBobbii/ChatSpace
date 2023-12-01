@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Chatroom = require("../models/Chatroom");
+// const { generateChart } = require("../utils/helpers");
 
 router.get("/", async (req, res) => {
   res.redirect("/login");
@@ -21,6 +22,7 @@ router.get("/testing", async (req, res) => {
       chatrooms: chatrooms,
       logged_in: true,
     });
+    // generateChart();
   } catch (err) {
     res.status(500).json(err);
   }
