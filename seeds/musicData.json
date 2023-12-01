@@ -1,12 +1,32 @@
 [
     {
-        "genre": "test rock",
+        "genre": "Rock",
         "band_name": "",
         "user_id": "1"
     },
     {
-        "genre": "test synthwave",
+        "genre": "Synthwave",
         "band_name": "",
         "user_id": "2"
+    },
+    {
+        "genre": "Pop",
+        "band_name": "",
+        "user_id": "2"
+    },
+    {
+        "genre": "Electronic",
+        "band_name": "",
+        "user_id": "3"
+    },
+    {
+        "genre": "Punk",
+        "band_name": "",
+        "user_id": "2"
+    },
+    {
+        "genre": "Rap",
+        "band_name": "",
+        "user_id": "1"
     }
 ]

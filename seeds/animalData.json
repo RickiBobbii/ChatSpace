@@ -1,10 +1,30 @@
 [
     {
-        "species": "test dog",
+        "species": "Dog",
         "user_id": "1"
     },
     {
-        "species": "test cat",
+        "species": "Cat",
         "user_id": "2"
+    },
+    {
+        "species": "Rabbit",
+        "user_id": "2"
+    },
+    {
+        "species": "Panda",
+        "user_id": "2"
+    },
+    {
+        "species": "Tiger",
+        "user_id": "3"
+    },
+    {
+        "species": "Bear",
+        "user_id": "1"
+    },
+    {
+        "species": "Conure",
+        "user_id": "3"
     }
 ]

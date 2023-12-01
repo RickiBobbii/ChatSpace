@@ -1,10 +1,30 @@
 [
     {
-        "language": "test javascript",
+        "language": "Javascript",
         "user_id": "1"
     },
     {
-        "language": "test python",
+        "language": "Python",
         "user_id": "2"
+    },
+    {
+        "language": "CSS",
+        "user_id": "3"
+    },
+    {
+        "language": "HTML",
+        "user_id": "2"
+    },
+    {
+        "language": "C++",
+        "user_id": "2"
+    },
+    {
+        "language": "Java",
+        "user_id": "3"
+    },
+    {
+        "language": "Node.js",
+        "user_id": "1"
     }
 ]

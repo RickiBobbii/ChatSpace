@@ -1,12 +1,37 @@
 [
     {
-        "genre": "test action",
+        "genre": "Action",
         "movie_name": "",
         "user_id": "1"
     },
     {
-        "genre": "test thriller",
+        "genre": "Thriller",
         "movie_name": "",
         "user_id": "2"
+    },
+    {
+        "genre": "Syfy",
+        "movie_name": "",
+        "user_id": "2"
+    },
+    {
+        "genre": "Comedy",
+        "movie_name": "",
+        "user_id": "3"
+    },
+    {
+        "genre": "Drama",
+        "movie_name": "",
+        "user_id": "2"
+    },
+    {
+        "genre": "Horror",
+        "movie_name": "",
+        "user_id": "1"
+    },
+    {
+        "genre": "Anime",
+        "movie_name": "",
+        "user_id": "3"
     }
 ]
