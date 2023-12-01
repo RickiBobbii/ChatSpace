@@ -1,18 +1,17 @@
 [
-    {
-      "username": "Owen",
-      "email": "owen@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "username": "Dustin",
-      "email": "dustin@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "username": "Jared",
-      "email": "jared@gmail.com",
-      "password": "12345678"
-    }
-  ]
-  
+  {
+    "username": "Owen",
+    "email": "owen@gmail.com",
+    "password": "1234"
+  },
+  {
+    "username": "Dustin",
+    "email": "dustin@gmail.com",
+    "password": "1234"
+  },
+  {
+    "username": "Jared",
+    "email": "jared@gmail.com",
+    "password": "1234"
+  }
+]

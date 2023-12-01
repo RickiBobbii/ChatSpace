@@ -1,8 +1,16 @@
 const socket = io();
+let username;
 
 document.querySelectorAll(".chatrooms").forEach((chatroom) => {
-  chatroom.addEventListener("click", function (e) {
+  chatroom.addEventListener("click", async function (e) {
     e.preventDefault();
+
+    const response = await fetch(`/api/users/currentUser`, {
+      method: "GET",
+    });
+
+    username = await response.json();
+
     const mainElement = document.querySelector("#main");
     const chatElement = document.querySelector(`#chat${chatroom.id}`);
     socket.emit("join", `Room: ${chatroom.id}`);
@@ -18,8 +26,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   });
 });
 
-let uname = "Other User";
-socket.emit("newuser", uname);
+socket.emit("newuser", username);
 
 document
   .querySelector(".chat-screen #send-message")
@@ -30,12 +37,12 @@ document
     }
 
     renderMessage("my", {
-      username: uname,
+      username: username,
       text: message,
     });
 
     socket.emit("chat", {
-      username: uname,
+      username: username,
       text: message,
     });
 
@@ -45,7 +52,7 @@ document
 document
   .querySelector(".chat-screen #exit-chat")
   .addEventListener("click", function () {
-    socket.emit("exituser", uname);
+    socket.emit("exituser", username);
     window.location.href = window.location.href;
   });
 
