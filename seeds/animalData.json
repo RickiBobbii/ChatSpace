@@ -1,0 +1,10 @@
+[
+    {
+        "species": "test dog",
+        "user_id": "1"
+    },
+    {
+        "species": "test cat",
+        "user_id": "2"
+    }
+]

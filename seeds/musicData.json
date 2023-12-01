@@ -1,0 +1,12 @@
+[
+    {
+        "genre": "test rock",
+        "band_name": "",
+        "user_id": "1"
+    },
+    {
+        "genre": "test synthwave",
+        "band_name": "",
+        "user_id": "2"
+    }
+]
