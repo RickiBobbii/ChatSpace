@@ -39,14 +39,17 @@
           class="bg-slate-200 text-slate-800 rounded-sm h-full w-2/12 flex flex-col items-center justify-center"
         >
           {{#each chatrooms as |chatroom|}}
-            <a class="chatrooms" id="{{id}}" href="../chatroom/{{chatroom.id}}">
-              <p>{{chatroom.title}}</p>
+            <a class="chatrooms" id="{{id}}">
+              <button>{{chatroom.title}}</button>
             </a>
           {{/each}}
         </aside>
       {{/if}}
       <main class="w-7/12 mx-auto max-w-4xl">
+      <div id="main" class="show">
         {{{body}}}
+      </div>
+        {{> chatrooms}}
       </main>
     </div>
     {{#if logged_in}}

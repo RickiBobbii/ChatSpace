@@ -5,23 +5,6 @@ router.get("/", async (req, res) => {
   res.redirect("/login");
 });
 
-router.get("/chatroom/:id", async (req, res) => {
-  try {
-    const chatroomData = await Chatroom.findAll({});
-
-    const chatrooms = chatroomData.map((chatroom) =>
-      chatroom.get({ plain: true })
-    );
-
-    res.render(`chatroom${req.params.id}`, {
-      chatrooms: chatrooms,
-      logged_in: true,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.get("/testing", async (req, res) => {
   // if (!req.session.logged_in) {
   //   res.redirect("/login");

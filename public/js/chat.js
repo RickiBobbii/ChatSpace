@@ -1,17 +1,19 @@
 const socket = io();
-const app = document.querySelector(".app");
 
 document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   chatroom.addEventListener("click", function (e) {
     e.preventDefault();
-    if (
-      window.location.href.charAt(window.location.href.length - 1) ===
-      chatroom.id
-    ) {
-      socket.emit("join", `Room: ${chatroom.id}`);
-      return;
+    const mainElement = document.querySelector("#main");
+    const chatElement = document.querySelector(`#chat${chatroom.id}`);
+    socket.emit("join", `Room: ${chatroom.id}`);
+    if (chatElement.className === "hide") {
+      document.querySelectorAll(".show").forEach((element) => {
+        element.className = "hide";
+      });
+      document.querySelector(`#chat${chatroom.id}`).className = "show";
     } else {
-      document.location.replace(chatroom.href);
+      chatElement.className = "hide";
+      mainElement.className = "show";
     }
   });
 });
@@ -19,10 +21,10 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
 let uname = "Other User";
 socket.emit("newuser", uname);
 
-app
+document
   .querySelector(".chat-screen #send-message")
   .addEventListener("click", function () {
-    let message = app.querySelector(".chat-screen #message-input").value;
+    let message = document.querySelector(".chat-screen #message-input").value;
     if (message.length == 0) {
       return;
     }
@@ -37,10 +39,10 @@ app
       text: message,
     });
 
-    app.querySelector(".chat-screen #message-input").value = "";
+    document.querySelector(".chat-screen #message-input").value = "";
   });
 
-app
+document
   .querySelector(".chat-screen #exit-chat")
   .addEventListener("click", function () {
     socket.emit("exituser", uname);
@@ -56,7 +58,7 @@ socket.on("chat", function (message) {
 });
 
 function renderMessage(type, message) {
-  let messageContainer = app.querySelector(".chat-screen .messages");
+  let messageContainer = document.querySelector(".chat-screen .messages");
   if (type == "my") {
     let el = document.createElement("div");
     el.setAttribute("class", "message my-message");
