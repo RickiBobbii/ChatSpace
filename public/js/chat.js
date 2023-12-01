@@ -5,9 +5,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   chatroom.addEventListener("click", async function (e) {
     e.preventDefault();
 
-    const response = await fetch(`/api/users/currentUser`, {
-      method: "GET",
-    });
+    const response = await fetch(`/api/users/currentUser`);
 
     username = await response.json();
 

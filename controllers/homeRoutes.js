@@ -28,16 +28,24 @@ router.get("/", async (req, res) => {
 // });
 
 router.get("/testing", async (req, res) => {
-  // if (!req.session.logged_in) {
-  //   res.redirect("/login");
-  //   return;
-  // }
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
   try {
+    // const userData = await User.findAll({
+    //   where: { username: req.session.username },
+    //   include: { model: Project },
+    // });
+
     const chatroomData = await Chatroom.findAll({});
 
     const chatrooms = chatroomData.map((chatroom) =>
       chatroom.get({ plain: true })
     );
+
+    // a user's project tag matches a chatroom
+    // const hasTag = userData.project.tag === chatrooms.title;
 
     res.render("testing", {
       chatrooms: chatrooms,
@@ -50,7 +58,7 @@ router.get("/testing", async (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/testing");
     return;
   }
   res.render("login");
