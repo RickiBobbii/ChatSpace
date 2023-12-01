@@ -36,5 +36,3 @@ Music.belongsTo(User, {
 Project.belongsTo(User, {
     foreignKey: 'user_id',
 });
-
-module.exports = { Chatroom };
