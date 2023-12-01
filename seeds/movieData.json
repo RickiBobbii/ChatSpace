@@ -1,11 +1,11 @@
 [
     {
-        "genre": "test rock",
+        "genre": "test action",
         "movie_name": "",
         "user_id": "1"
     },
     {
-        "genre": "test synthwave",
+        "genre": "test thriller",
         "movie_name": "",
         "user_id": "2"
     }
