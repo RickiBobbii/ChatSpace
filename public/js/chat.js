@@ -64,6 +64,7 @@ function renderMessage(type, message) {
           <div>
             <div class="name">You</div>
             <div class="text">${message.text}</div>
+          </div>
         `;
     messageContainer.appendChild(el);
   } else if (type == "other") {
