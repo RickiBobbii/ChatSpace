@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Chatroom = require("../models/Chatroom");
 const User = require("../models/User");
+const Blog = require("../models/Blog");
 
 router.get("/", async (req, res) => {
   res.redirect("/login");
@@ -33,10 +34,16 @@ router.get("/testing", async (req, res) => {
     return;
   }
   try {
-    // const userData = await User.findAll({
-    //   where: { username: req.session.username },
-    //   include: { model: Project },
-    // });
+    const blogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     const chatroomData = await Chatroom.findAll({});
 
@@ -44,12 +51,10 @@ router.get("/testing", async (req, res) => {
       chatroom.get({ plain: true })
     );
 
-    // a user's project tag matches a chatroom
-    // const hasTag = userData.project.tag === chatrooms.title;
-
     res.render("testing", {
       chatrooms: chatrooms,
-      logged_in: true,
+      blogs: blogs,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
