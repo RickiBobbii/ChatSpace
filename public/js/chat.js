@@ -71,7 +71,7 @@ function renderMessage(type, message) {
     el.setAttribute("class", "message my-message");
     el.innerHTML = `
           <div>
-            <div class="name">You</div>
+            <div class="name">${message.username}</div>
             <div class="text">${message.text}</div>
         `;
     messageContainer.appendChild(el);

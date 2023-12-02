@@ -7,27 +7,28 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
-  <body class="bg-gray-900 text-gray-300">
+  <body class="bg-slate-900 text-gray-300">    
     <header
-      class="flex justify-between items-center p-8 bg-gray-400 drop-shadow-sm border-b-4 border-b-slate-600"
-    >
+      class="flex relative justify-end items-center p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+      <div class="flex absolute chatspace">
       <h1>
-        <a class="text-5xl font-bold text-gray-900" href="/">ChatSpace</a>
+        <a class="text-5xl font-bold text-violet-100" href="/">ChatSpace</a>
       </h1>
+      </div>
       <nav class="flex flex-row items-center gap-2">
         {{#if logged_in}}
           <button
-            class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
           >
             <a href="/profile">PROFILE</a>
           </button>|
           <button
-            class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
             id="logout"
           ><a href="/login">LOGOUT</a></button>
         {{else}}
           <a
-            class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
             href="/testing"
           >LOGIN</a>
         {{/if}}
@@ -36,16 +37,16 @@
     <div class="flex flex-row h-[calc(100vh-8rem)]">
       {{#if logged_in}}
         <aside
-          class="bg-slate-200 text-slate-800 rounded-sm h-full w-2/12 flex flex-col items-center justify-center"
+          class="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm h-full w-2/12 flex flex-col items-center"
         >
           {{#each chatrooms as |chatroom|}}
             <a class="chatrooms" id="{{id}}">
-              <button>{{chatroom.title}}</button>
+              <button class="transform rounded-md bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black p-4 my-5 font-bold duration-300 hover:bg-indigo-400">{{chatroom.title}}</button>
             </a>
           {{/each}}
         </aside>
       {{/if}}
-      <main class="w-7/12 mx-auto max-w-4xl">
+      <main class="w-7/12 mx-auto mt-5 max-w-4xl">
       <div id="main" class="show">
         {{{body}}}
       </div>
