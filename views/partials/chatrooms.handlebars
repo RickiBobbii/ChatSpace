@@ -1,0 +1,17 @@
+{{#each chatrooms as |chatroom|}}
+  <div id="chat{{chatroom.id}}" class="hide">
+    <h2 class="text-2xl">Chatroom {{chatroom.id}}</h2>
+    <div class="screen chat-screen">
+      <div class="header">
+        <div class="logo">Chatroom</div>
+        <button id="exit-chat">Exit</button>
+      </div>
+      <div class="messages">
+      </div>
+      <div class="typebox">
+        <input type="text" id="message-input" />
+        <button id="send-message">Send</button>
+      </div>
+    </div>
+  </div>
+{{/each}}
