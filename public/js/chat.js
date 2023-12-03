@@ -1,7 +1,7 @@
 const socket = io();
 let username;
 
-document.querySelectorAll(".chatroom").forEach((chatroom) => {
+document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   chatroom.addEventListener("click", async function (e) {
     e.preventDefault();
 
