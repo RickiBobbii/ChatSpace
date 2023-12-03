@@ -1,7 +1,7 @@
 const socket = io();
 let username;
 
-document.querySelectorAll(".chatroom").forEach((chatroom) => {
+document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   chatroom.addEventListener("click", async function (e) {
     e.preventDefault();
 
@@ -62,7 +62,7 @@ function renderMessage(type, message) {
     el.setAttribute("class", "message my-message");
     el.innerHTML = `
           <div>
-            <div class="name">You</div>
+            <div class="name">${message.username}</div>
             <div class="text">${message.text}</div>
           </div>
         `;
