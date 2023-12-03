@@ -28,7 +28,7 @@
         {{else}}
           <a
             class="transform rounded-sm bg-indigo-600 p-2 font-bold duration-300 hover:bg-indigo-400"
-            href="/testing"
+            href="/login"
           >LOGIN</a>
         {{/if}}
       </nav>
@@ -39,8 +39,8 @@
           class="bg-slate-200 text-slate-800 rounded-sm h-full w-2/12 flex flex-col items-center justify-center"
         >
           {{#each chatrooms as |chatroom|}}
-            <a class="chatrooms" id="{{id}}">
-              <button>{{chatroom.title}}</button>
+            <a class="chatroom" id="{{id}}">
+              <button class="chatTitle">{{chatroom.title}}</button>
             </a>
           {{/each}}
         </aside>

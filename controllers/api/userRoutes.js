@@ -3,6 +3,7 @@ const { User } = require("../../models");
 
 router.post("/login", async (req, res) => {
   try {
+
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -52,7 +53,6 @@ router.get("/currentUser", async (req, res) => {
     });
 
     res.status(200).json(userData[0].username);
-    console.log(userData[0].username);
   } catch (err) {
     res.status(400).json(err);
     console.log("error");

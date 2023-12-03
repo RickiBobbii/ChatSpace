@@ -1,0 +1,28 @@
+[
+  {
+    "title": "I love Quentin Tarantino Movies",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "date_created": "11/5/23",
+    "user_id": 2,
+    "tag": "movies"
+  },
+  {
+    "title": "Why Led Zeppelin is a Great Band",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "date_created": "11/1/23",
+    "user_id": 1,
+    "tag": "music"
+  },
+  {
+    "title": "A Blog About My Cat",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "user_id": 2,
+    "tag": "animals"
+  },
+  {
+    "title": "My Fav Anime",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "user_id": 3,
+    "tag": "anime"
+  }
+]
