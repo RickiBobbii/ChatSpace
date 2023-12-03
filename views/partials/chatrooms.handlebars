@@ -1,6 +1,6 @@
 {{#each chatrooms as |chatroom|}}
   <div id="chat{{chatroom.id}}" class="hide">
-    <h2 class="text-2xl" style="padding-bottom: 1em">Chatroom {{chatroom.id}}</h2>
+    <h2 class="text-2xl" style="padding-bottom: 1em">{{chatroom.title}}</h2>
     <div class="screen chat-screen">
       <div class="header">
         <div class="logo"></div>
@@ -13,11 +13,13 @@
       </div>
       <div class="typebox my-2">
         <input type="text" id="message-input" class="shadow appearance-none border rounded w-5/6 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Type here"/>
-        <button class="bg-pink-700 rounded-md p-2" id="send-message">Send</button>
+        <button class="bg-pink-700 rounded-md p-2 send-message">Send</button>
       </div>
       <div>
-        <button class="bg-slate-600 rounded-md p-2" id="exit-chat">Leave Room</button>
+        <button class="bg-slate-600 rounded-md p-2 delChat" data-id={{chatroom.id}}>Leave Room</button>
       </div>
     </div>
   </div>
 {{/each}}
+
+<script src="js/deleteChat.js"></script>

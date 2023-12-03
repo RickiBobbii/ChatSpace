@@ -1,7 +1,10 @@
-const router = require('express').Router();
-const userRoutes = require('./userRoutes');
+const router = require("express").Router();
+const userRoutes = require("./userRoutes");
+const chatroomRoutes = require("./chatroomRoutes");
+const blogRoutes = require('./blogRoutes');
 
-//Add user route
-router.use('/users', userRoutes);
+router.use("/users", userRoutes);
+router.use("/chatrooms", chatroomRoutes);
+router.use('/blogs', blogRoutes);
 
 module.exports = router;
