@@ -40,10 +40,18 @@ const delButtonHandler = async (event) => {
 
 async function newChat(event) {
   event.preventDefault();
-
   const tag = document.querySelector("#blogTag").value.trim();
+  let match = false;
+  if (!tag) return;
 
-  if (tag) {
+  document.querySelectorAll(".chatTitle").forEach(async (chatroom) => {
+    if (chatroom.textContent === tag) {
+      match = true;
+      return;
+    }
+  });
+
+  if (match === false) {
     const response = await fetch(`/api/chatrooms`, {
       method: "POST",
       body: JSON.stringify({ title: tag }),
@@ -55,7 +63,7 @@ async function newChat(event) {
     if (response.ok) {
       document.location.replace("/testing");
     } else {
-      alert("Failed to create new chat");
+      alert("Failed to create new chatroom");
     }
   }
 }
