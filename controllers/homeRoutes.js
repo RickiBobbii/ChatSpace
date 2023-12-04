@@ -47,6 +47,13 @@ router.get("/testing", async (req, res) => {
 
     const chatroomData = await Chatroom.findAll({});
 
+    //testing find username for render
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+
     const chatrooms = chatroomData.map((chatroom) =>
       chatroom.get({ plain: true })
     );
@@ -54,6 +61,7 @@ router.get("/testing", async (req, res) => {
     res.render("testing", {
       chatrooms: chatrooms,
       blogs: blogs,
+      ...user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
