@@ -1,0 +1,28 @@
+<div
+    class="bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] bg-[#292240] flex items-center justify-center min-h-screen text-[#9e9cb6]">
+    <section
+        class="w-full max-w-[430px] relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-hidden">
+        {{!-- <a href="https://ionel.olariu.dev" target="_blank" class="">
+            <img src="https://avatars.githubusercontent.com/u/25511379?v=4" class="rounded-full w-[120px] mx-auto my-10 p-0 border-[6px] box-content border-[#231f39] shadow-[0px_27px_16px_-11px_rgba(31,27,56,0.25)] transition-all duration-150 ease-in hover:scale-105 cursor-pointer slide-in-elliptic-top-fwd">
+        </a> --}}
+        <h1 class="text-xl font-bold text-center">{{username}}</h1>
+        <small class="block my-1 text-center">NEW YORK</small>
+        <p class="mt-5 text-center">User Interface design and front<br> end developer.</p>
+        <div class="flex items-center justify-center gap-2 w-[80%] mx-auto mt-5 mb-10">
+            <button class="flex-1 border border-[#231f39] rounded-[4px] py-3 text-white bg-[#231f39] transition-all duration-150 ease-in hover:bg-[#472e99]">Message</button>
+            <button class="flex-1 border border-[#231f39] text-[#ffffff] rounded-[4px] py-3 transition-all duration-150 ease-in hover:bg-[#472e99]  hover:text-white">Following</button>
+        </div>
+        <div class="bg-[#1e1a36]/70 p-4 text-sm font-semibold backdrop-blur-sm">
+            <p>Interests</p>
+            {{!-- active joined chats --}}
+            {{#if blogs.length}}
+            <ul
+                class="flex mt-4 flex-wrap items-center justify-start gap-2 gap-y-3 [&>li]:border-2 [&>li]:border-[#2f2a47] [&>li]:px-3 [&>li]:py-1 [&>li]:rounded-[4px] [&>li]:transition-all [&>li]:duration-150 [&>li]:ease-in [&>li:hover]:scale-105 [&>li:hover]:cursor-pointer">
+              {{#each blogs as |blog|}}
+              <li>{{blog.tag}}</li>  
+              {{/each}}
+            </ul>
+            {{/if}}
+        </div>
+    </section>
+    </div> 

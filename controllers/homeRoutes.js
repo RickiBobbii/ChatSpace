@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
 //     const user = userData.get({ plain: true });
 
-//     res.render("profile", {
+//     res.render("profile-test", {
 //       ...user,
 //       // logged_in: true,
 //     });
@@ -27,6 +27,30 @@ router.get("/", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
+
+// profile test route
+router.get("/profile", async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  try { 
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"]},
+      include: [
+        {model: Blog}
+      ]
+    });
+    const user = userData.get({ plain:true });
+    
+    res.render("profile", {
+      user_id: user,
+      logged_in: req.session.logged_in,
+    })
+    } catch (err) {
+      res.status(400).json(err);
+    };
+});
 
 router.get("/testing", async (req, res) => {
   if (!req.session.logged_in) {
@@ -56,7 +80,6 @@ router.get("/testing", async (req, res) => {
       blogs: blogs,
       logged_in: req.session.logged_in,
     });
-    // generateChart();
   } catch (err) {
     res.status(500).json(err);
   }
