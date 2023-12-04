@@ -47,6 +47,20 @@ const signupFormHandler = async (event) => {
     }
 };
 
+//SHow create and hide login
+const showCreatUser = async (event) => {
+  event.preventDefault();
+
+  const login = document.querySelector('#login-card');
+  const create = document.querySelector('#create-card');
+  login.classList.add("hidden");
+  create.classList.remove("hidden");
+
+};
+
+
 document.querySelector("#login").addEventListener("click", loginFormHandler);
 
 document.querySelector('#signup-user').addEventListener('click', signupFormHandler);
+
+document.querySelector('#show-create').addEventListener('click', showCreatUser);

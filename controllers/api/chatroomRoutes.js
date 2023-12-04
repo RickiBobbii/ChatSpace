@@ -33,4 +33,16 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+//Get all chatrooms
+//api routes for User
+router.get('/', async (req, res) => {
+  try {
+    const chatroomData = await Chatroom.findAll({
+    });
+    res.status(200).json(chatroomData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
