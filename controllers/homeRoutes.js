@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Chatroom = require("../models/Chatroom");
 const User = require("../models/User");
 const Blog = require("../models/Blog");
+const Comment = require("../models/Comment");
 
 router.get("/", async (req, res) => {
   res.redirect("/login");
@@ -28,6 +29,47 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
+router.get("/blog/:id", async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+
+    const commentData = await Comment.findAll({
+      where: {
+        blog_id: req.params.id,
+      },
+      include: {
+        model: User,
+        attributes: ["username"],
+      },
+    });
+
+    const blog = blogData.get({ plain: true });
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const authorComments = comments.map((comment) => {
+      return {
+        userIsAuthor: comment.user_id === req.session.user_id,
+        ...comment,
+      };
+    });
+
+    res.render("blog", {
+      ...blog,
+      comments: authorComments,
+      logged_in: req.session.logged_in,
+      isAuthor: blog.user_id === req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/testing", async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login");
@@ -49,7 +91,8 @@ router.get("/testing", async (req, res) => {
 
     //testing find username for render
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
+      attributes: { exclude: ["password"] },
+      include: [{ model: Blog, attributes: ["tag"] }],
     });
 
     const user = userData.get({ plain: true });
@@ -58,10 +101,22 @@ router.get("/testing", async (req, res) => {
       chatroom.get({ plain: true })
     );
 
+    const userChatrooms = chatrooms.map((chatroom) => {
+      const hasTag = user.blogs.some(
+        (blog) => blog.tag === chatroom.title.toLowerCase()
+      );
+      return {
+        userHasTag: hasTag,
+        ...chatroom,
+      };
+    });
+
+    console.log(userChatrooms);
+
     res.render("testing", {
-      chatrooms: chatrooms,
+      chatrooms: userChatrooms,
       blogs: blogs,
-      ...user,
+      username: user.username,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
