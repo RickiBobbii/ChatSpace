@@ -18,17 +18,17 @@
       <nav class="flex flex-row items-center gap-2">
         {{#if logged_in}}
           <button
-            class="transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
           >
             <a href="/profile">PROFILE</a>
           </button>|
           <button
-            class="transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
             id="logout"
           ><a href="/login">LOGOUT</a></button>
         {{else}}
           <a
-            class="transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
             href="/login"
           >LOGIN</a>
         {{/if}}
@@ -40,9 +40,11 @@
           class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm h-full w-2/12 flex flex-col items-center"
         >
           {{#each chatrooms as |chatroom|}}
+            {{#if chatroom.userHasTag}}
             <a class="chatrooms" id="{{id}}">
-              <button class="transform rounded-md bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black p-4 my-5 font-bold duration-300 hover:bg-indigo-400">{{chatroom.title}}</button>
+              <button class="chatTitle transform rounded-md bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black p-4 my-5 font-bold duration-300 hover:bg-indigo-400">{{chatroom.title}}</button>
             </a>
+            {{/if}}
           {{/each}}
         </aside>
       {{/if}}

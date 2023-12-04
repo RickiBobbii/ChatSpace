@@ -34,7 +34,7 @@
         <div class="flex justify-center items-center">
           <button
             type="submit"
-            class="mt-2 border-2 font-bold border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
+            class="mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
           >Create New Blog</button>
         </div>
       </form>
@@ -47,12 +47,12 @@
         {{#each blogs as |blog|}}
           <div class="flex justify-center">
             <div
-              class="flex justify-between items-center border-2 rounded-md p-2 bg-slate-600 border-slate-600 mb-2"
+              class="flex justify-between items-center border-2 rounded-sm p-2 bg-slate-600 border-slate-600 mb-2"
             >
               <div>
                 <a href="/blog/{{blog.id}}">
                   <h4
-                    class="font-bold text-lg transition-all duration-200 transform hover:scale-105 mr-4"
+                    class="font-bold text-lg mr-8 duration-300 hover:text-indigo-200"
                   >{{blog.title}}</h4>
                 </a>
                 {{#if blog.tag}}
@@ -60,7 +60,7 @@
                 {{/if}}
               </div>
               <button
-                class="border-2 font-bold text-sm border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
+                class="font-bold text-sm rounded-sm bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
                 data-id="{{blog.id}}"
               >DELETE</button>
             </div>
@@ -71,4 +71,4 @@
   </div>
 </div>
 
-<script src="/js/blog.js"></script>
+<script src="../js/blog.js"></script>

@@ -45,7 +45,7 @@ async function newChat(event) {
   if (!tag) return;
 
   document.querySelectorAll(".chatTitle").forEach(async (chatroom) => {
-    if (chatroom.textContent === tag) {
+    if (chatroom.textContent.toLowerCase() === tag.toLowerCase()) {
       match = true;
       return;
     }
