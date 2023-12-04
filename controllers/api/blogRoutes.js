@@ -29,26 +29,26 @@ router.post("/:id", async (req, res) => {
   }
 });
 
-// router.put("/:id", async (req, res) => {
-//   try {
-//     const newBlog = await Blog.update(
-//       {
-//         title: req.body.title,
-//         content: req.body.content,
-//         date_created: Date.now(),
-//       },
-//       {
-//         where: {
-//           id: req.params.id,
-//         },
-//       }
-//     );
+router.put("/:id", async (req, res) => {
+  try {
+    const newBlog = await Blog.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+        date_created: Date.now(),
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
 
-//     res.status(200).json(newBlog);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    res.status(200).json(newBlog);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.delete("/:id", async (req, res) => {
   try {

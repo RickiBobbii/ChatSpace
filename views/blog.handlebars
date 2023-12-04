@@ -1,12 +1,12 @@
 <div
   class="text-center rounded-sm border-2 p-6 drop-shadow-md bg-transparent border-slate-500"
 >
-  <h2 class="text-2xl font-bold">{{title}}</h2>
+  <h2 class="text-2xl font-bold" id="oldBlogTitle">{{title}}</h2>
   <p class="text-sm">Created by
     <strong>{{user.username}}</strong>
     on
     {{format_date date_created}}</p>
-  <p class="mt-4 font-semibold">{{content}}</p>
+  <p class="mt-4 font-semibold" id="oldContent">{{content}}</p>
   {{#if isAuthor}}
     <button
       id="editButton"
