@@ -5,9 +5,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   chatroom.addEventListener("click", async function (e) {
     e.preventDefault();
 
-    const response = await fetch(`/api/users/currentUser`, {
-      method: "GET",
-    });
+    const response = await fetch(`/api/users/currentUser`);
 
     username = await response.json();
 
@@ -28,10 +26,9 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
 
 socket.emit("newuser", username);
 
-document
-  .querySelector(".chat-screen #send-message")
-  .addEventListener("click", function () {
-    let message = document.querySelector(".chat-screen #message-input").value;
+document.querySelectorAll(".send-message").forEach((sendButton) => {
+  sendButton.addEventListener("click", function () {
+    let message = document.querySelector(".show #message-input").value;
     if (message.length == 0) {
       return;
     }
@@ -46,15 +43,9 @@ document
       text: message,
     });
 
-    document.querySelector(".chat-screen #message-input").value = "";
+    document.querySelector(".show #message-input").value = "";
   });
-
-document
-  .querySelector(".chat-screen #exit-chat")
-  .addEventListener("click", function () {
-    socket.emit("exituser", username);
-    window.location.href = window.location.href;
-  });
+});
 
 socket.on("update", function (update) {
   renderMessage("update", update);
@@ -65,14 +56,15 @@ socket.on("chat", function (message) {
 });
 
 function renderMessage(type, message) {
-  let messageContainer = document.querySelector(".chat-screen .messages");
+  let messageContainer = document.querySelector(".show .messages");
   if (type == "my") {
     let el = document.createElement("div");
     el.setAttribute("class", "message my-message");
     el.innerHTML = `
           <div>
-            <div class="name">You</div>
+            <div class="name">${message.username}</div>
             <div class="text">${message.text}</div>
+          </div>
         `;
     messageContainer.appendChild(el);
   } else if (type == "other") {

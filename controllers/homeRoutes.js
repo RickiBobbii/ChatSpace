@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Chatroom = require("../models/Chatroom");
 const User = require("../models/User");
+const Blog = require("../models/Blog");
 
 router.get("/", async (req, res) => {
   res.redirect("/login");
@@ -28,11 +29,22 @@ router.get("/", async (req, res) => {
 // });
 
 router.get("/testing", async (req, res) => {
-  // if (!req.session.logged_in) {
-  //   res.redirect("/login");
-  //   return;
-  // }
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
   try {
+    const blogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
     const chatroomData = await Chatroom.findAll({});
 
     const chatrooms = chatroomData.map((chatroom) =>
@@ -41,7 +53,8 @@ router.get("/testing", async (req, res) => {
 
     res.render("testing", {
       chatrooms: chatrooms,
-      logged_in: true,
+      blogs: blogs,
+      logged_in: req.session.logged_in,
     });
     // generateChart();
   } catch (err) {
@@ -51,7 +64,7 @@ router.get("/testing", async (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/testing");
     return;
   }
   res.render("login");
