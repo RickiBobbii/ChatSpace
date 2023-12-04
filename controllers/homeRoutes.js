@@ -111,8 +111,6 @@ router.get("/testing", async (req, res) => {
       };
     });
 
-    console.log(userChatrooms);
-
     res.render("testing", {
       chatrooms: userChatrooms,
       blogs: blogs,
