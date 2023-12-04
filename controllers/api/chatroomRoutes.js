@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { Chatroom } = require("../../models");
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
   try {
     const newPost = await Chatroom.create({
       ...req.body,

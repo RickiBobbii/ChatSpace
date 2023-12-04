@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog } = require("../../models");
+const { Blog, Comment } = require("../../models");
 
 // Advanced features are commented out, basic post and delete are functional
 router.post("/", async (req, res) => {
@@ -15,19 +15,19 @@ router.post("/", async (req, res) => {
   }
 });
 
-// router.post("/:id", async (req, res) => {
-//   try {
-//     const newComment = await Comment.create({
-//       ...req.body,
-//       user_id: req.session.user_id,
-//       blog_id: req.params.id,
-//     });
+router.post("/:id", async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+      blog_id: req.params.id,
+    });
 
-//     res.status(200).json(newComment);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 // router.put("/:id", async (req, res) => {
 //   try {
@@ -70,23 +70,23 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// router.delete("/comment/:id", withAuth, async (req, res) => {
-//   try {
-//     const commentData = await Comment.destroy({
-//       where: {
-//         id: req.params.id,
-//       },
-//     });
+router.delete("/comment/:id", async (req, res) => {
+  try {
+    const commentData = await Comment.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
 
-//     if (!commentData) {
-//       res.status(404).json({ message: "No comment found with this id!" });
-//       return;
-//     }
+    if (!commentData) {
+      res.status(404).json({ message: "No comment found with this id!" });
+      return;
+    }
 
-//     res.status(200).json(commentData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.status(200).json(commentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

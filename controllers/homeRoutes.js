@@ -8,6 +8,34 @@ router.get("/", async (req, res) => {
   res.redirect("/login");
 });
 
+router.get("", async (req, res) => {
+  const chatroomData = await Chatroom.findAll({});
+
+  //testing find username for render
+  const userData = await User.findByPk(req.session.user_id, {
+    attributes: { exclude: ["password"] },
+    include: [{ model: Blog, attributes: ["tag"] }],
+  });
+
+  const user = userData.get({ plain: true });
+
+  const chatrooms = chatroomData.map((chatroom) =>
+    chatroom.get({ plain: true })
+  );
+
+  const userChatrooms = chatrooms.map((chatroom) => {
+    const hasTag = user.blogs.some(
+      (blog) => blog.tag === chatroom.title.toLowerCase()
+    );
+    return {
+      userHasTag: hasTag,
+      ...chatroom,
+    };
+  });
+
+  res.send(userChatrooms);
+});
+
 // router.get("user/:username", async (req, res) => {
 //   try {
 //     const userData = await User.findAll({
