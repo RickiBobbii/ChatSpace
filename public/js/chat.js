@@ -13,8 +13,8 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
 
     const mainElement = document.querySelector("#main");
     const chatElement = document.querySelector(`#chat${chatroom.id}`);
-    socket.emit("join", `${chatroom.textContent.trim()}`);
     if (chatElement.className === "hide") {
+      socket.emit("join", `${chatroom.textContent.trim()}`);
       socket.emit("newuser", username);
       document.querySelectorAll(".show").forEach((element) => {
         element.className = "hide";
