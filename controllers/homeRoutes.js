@@ -20,14 +20,43 @@ router.get("user/:username", async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render("profile", {
-      ...user,
-      logged_in: true,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  const chatrooms = chatroomData.map((chatroom) =>
+    chatroom.get({ plain: true })
+  );
+
+  const userChatrooms = chatrooms.map((chatroom) => {
+    const hasTag = user.blogs.some(
+      (blog) => blog.tag === chatroom.title.toLowerCase()
+    );
+    return {
+      userHasTag: hasTag,
+      ...chatroom,
+    };
+  });
+
+  res.send(userChatrooms);
 });
+
+// router.get("user/:username", async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       where: {
+//         username: req.params.username,
+//       },
+//       attributes: { exclude: ["password"] },
+//       include: [{ model: Blog }],
+//     });
+
+//     const user = userData.get({ plain: true });
+
+//     res.render("profile", {
+//       ...user,
+//       // logged_in: true,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/blog/:id", async (req, res) => {
   try {
