@@ -62,8 +62,8 @@ function renderMessage(type, message) {
     el.setAttribute("class", "message my-message flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end");
     el.innerHTML = `
           <div class="">
-            <div class="name uppercase text-2xl flex justify-end">${message.username}</div>
-            <div class="text text-xl bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">${message.text}</div>
+              <div class="name uppercase text-2xl flex justify-end"><a href="user/${message.username}">${message.username}</a></div>
+              <div class="text text-xl bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">${message.text}</div>
           </div>
         `;
     messageContainer.appendChild(el);
@@ -72,7 +72,7 @@ function renderMessage(type, message) {
     el.setAttribute("class", "message other-message flex w-full mt-2 space-x-3 max-w-xs mr-auto justify-start");
     el.innerHTML = `
           <div>
-            <div class="name uppercase text-2xl flex justify-start">${message.username}</div>
+            <div class="name uppercase text-2xl flex justify-start"><a href="user/${message.username}">${message.username}</a></div>
             <div class="text text-xl bg-slate-400 text-white p-3 rounded-r-lg rounded-bl-lg">${message.text}</div>
           </div>
         `;
