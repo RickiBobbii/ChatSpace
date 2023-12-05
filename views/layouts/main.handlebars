@@ -41,8 +41,8 @@
     <div class="flex flex-row h-screen">
       {{#if logged_in}}
         <aside
-        {{!-- TEST mobile hidden  --}}
-          class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/12 flex flex-col items-center hidden lg:block"
+        {{!-- TEST mobile hidden  hidden lg:block--}}
+          class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/12 flex flex-col items-center"
         >
           {{#each chatrooms as |chatroom|}}
             {{#if chatroom.userHasTag}}
