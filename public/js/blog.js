@@ -58,7 +58,7 @@ async function newChat(event) {
   if (match === false) {
     const response = await fetch(`/api/chatrooms`, {
       method: "POST",
-      body: JSON.stringify({ title }),
+      body: JSON.stringify({ title: tag }),
       headers: {
         "Content-Type": "application/json",
       },
