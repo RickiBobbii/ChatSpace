@@ -131,7 +131,7 @@ router.get("/testing", async (req, res) => {
 
     const userChatrooms = chatrooms.map((chatroom) => {
       const hasTag = user.blogs.some(
-        (blog) => blog.tag === chatroom.title.toLowerCase()
+        (blog) => blog.tag.toLowerCase() === chatroom.title.toLowerCase()
       );
       return {
         userHasTag: hasTag,
