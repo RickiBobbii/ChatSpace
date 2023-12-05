@@ -1,0 +1,32 @@
+[
+  {
+    "comment": "Nice",
+    "blog_id": 1,
+    "user_id": 1
+  },
+  {
+    "comment": "Cool post, see you in chat :)",
+    "blog_id": 2,
+    "user_id": 1
+  },
+  {
+    "comment": "Wow, you're totally right",
+    "blog_id": 1,
+    "user_id": 2
+  },
+  {
+    "comment": "This tag has the best chat",
+    "blog_id": 3,
+    "user_id": 2
+  },
+  {
+    "comment": "Totally radical dude",
+    "blog_id": 2,
+    "user_id": 3
+  },
+  {
+    "comment": "That's my favorite too!",
+    "blog_id": 5,
+    "user_id": 3
+  }
+]

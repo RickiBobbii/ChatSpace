@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { Chatroom } = require("../../models");
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
   try {
     const newPost = await Chatroom.create({
       ...req.body,
@@ -33,15 +32,19 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//Get all chatrooms
-//api routes for User
-router.get('/', async (req, res) => {
+router.get("/rooms", async (req, res) => {
   try {
-    const chatroomData = await Chatroom.findAll({
-    });
-    res.status(200).json(chatroomData);
+    const chatroomData = await Chatroom.findAll();
+
+    const rooms = chatroomData.map((chatroom) =>
+    chatroom.get({ plain: true })
+  );
+
+    res.status(200).json(rooms);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
+    console.log("error");
+
   }
 });
 

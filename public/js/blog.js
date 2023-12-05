@@ -44,8 +44,12 @@ async function newChat(event) {
   let match = false;
   if (!tag) return;
 
-  document.querySelectorAll(".chatTitle").forEach(async (chatroom) => {
-    if (chatroom.textContent === tag) {
+  const chatrooms = await fetch(`/api/chatrooms/rooms`);
+
+  const chats = await chatrooms.json();
+
+  chats.forEach((chatroom) => {
+    if (chatroom.title === tag.toLowerCase()) {
       match = true;
       return;
     }
@@ -54,7 +58,7 @@ async function newChat(event) {
   if (match === false) {
     const response = await fetch(`/api/chatrooms`, {
       method: "POST",
-      body: JSON.stringify({ title: tag }),
+      body: JSON.stringify({ title: tag.toLowerCase() }),
       headers: {
         "Content-Type": "application/json",
       },
