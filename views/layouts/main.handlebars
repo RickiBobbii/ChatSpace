@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
-  <body class="bg-slate-900 text-gray-300">    
+  <body class="bg-slate-900 text-gray-300">
     <header
-      class="flex relative justify-end items-center p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+      class="flex relative justify-end items-center p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black"
+    >
       <div class="flex absolute chatspace">
-      <h1>
-        <a class="text-5xl font-bold text-violet-100" href="/">ChatSpace</a>
-      </h1>
+        <h1>
+          <a class="text-5xl font-bold text-violet-100" href="/">ChatSpace</a>
+        </h1>
       </div>
       <nav class="flex flex-row items-center gap-2">
         {{#if logged_in}}
@@ -28,10 +29,8 @@
           ><a href="/login">LOGOUT</a></button>
         {{else}}
           <a
-
-          {{!-- TESTING set button to invisible for login screen --}}
+            {{! TESTING set button to invisible for login screen }}
             class="invisible transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
-
             href="/login"
           >LOGIN</a>
         {{/if}}
@@ -44,17 +43,19 @@
         >
           {{#each chatrooms as |chatroom|}}
             {{#if chatroom.userHasTag}}
-            <a class="chatrooms w-9/12" id="{{id}}">
-              <button class="chatTitle capitalize transform w-full rounded-md bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black p-4 my-5 font-bold duration-300 hover:bg-indigo-400">{{chatroom.title}}</button>
-            </a>
+              <a class="chatrooms w-9/12" id="{{id}}">
+                <button
+                  class="chatTitle capitalize transform w-full rounded-md bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black p-4 my-5 font-bold duration-300 hover:bg-indigo-400"
+                >{{chatroom.title}}</button>
+              </a>
             {{/if}}
           {{/each}}
         </aside>
       {{/if}}
       <main class="w-7/12 mx-auto mt-5 max-w-4xl">
-      <div id="main" class="show">
-        {{{body}}}
-      </div>
+        <div id="main" class="show">
+          {{{body}}}
+        </div>
         {{> chatrooms}}
       </main>
     </div>
