@@ -1,83 +1,64 @@
 <main
-  class="mt-24 min-h-fit flex w-full items-center justify-center text-white gap-x-24"
+  {{!-- class="min-h-fit flex flex-col w-full items-center justify-center text-white gap-x-24" --}}
 >
-  <section class="flex w-[30rem] flex-col space-y-10">
-    <div class="text-center text-4xl font-medium">Log In</div>
 
-    <div
-      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
-    >
-      <input
-        id="email-login"
-        type="text"
-        placeholder="Email"
-        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-      />
-    </div>
+{{!-- TESTING  md:h-screen--}}
+<section id="login-card">
+  <div class="mt-10 flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                  Log in to Chat!
+              </h1>
+              <form class="space-y-4 md:space-y-6" action="#">
+                  <div>
+                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                      <input type="email" name="email" id="email-login" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@email.com" required="">
+                  </div>
+                  <div>
+                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                      <input type="password" name="password" id="password-login" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                  </div>
+                  <button id="login" class="w-full text-white bg-violet-900 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">LOG IN</button>
+                  <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Don’t have an account yet? <button id="show-create" class="font-medium text-lime-600 hover:underline dark:text-primary-500">Sign up</button>
+                  </p>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
 
-    <div
-      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
-    >
-      <input
-        id="password-login"
-        type="password"
-        placeholder="Password"
-        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-      />
-    </div>
 
-    <button
-      id="login"
-      class="transform rounded-sm bg-indigo-600 py-2 font-bold duration-300 hover:bg-indigo-400"
-    >
-      LOG IN
-    </button>
+{{!-- Create Account --}}
+{{!-- TESTING create card --}}
+<section id="create-card" class="hidden">
+  <div class="mt-10 flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-violet-900 dark:border-gray-700">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                  Create an Account
+              </h1>
+              <form class="space-y-4 md:space-y-6" action="#">
+                   <div>
+                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Display Name</label>
+                      <input type="email" name="email" id="name-signup" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name" required="">
+                  </div>
+                  <div>
+                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                      <input type="email" name="email" id="email-signup" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@email.com" required="">
+                  </div>
+                  <div>
+                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                      <input type="password" name="password" id="password-signup" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                  </div>
+                  <button id="signup-user" class="w-full text-black bg-slate-300 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">CREATE ACCOUNT</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
 
-  </section>
-  <h3 class="font-semibold italic"> OR </h3>
-  <section class="flex w-[30rem] flex-col space-y-10">
-    <div class="text-center text-4xl font-medium">Create an Account</div>
-
-    <div
-      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
-    >
-      <input
-        type="text"
-        placeholder="Display Name"
-        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-        id="name-signup"
-      />
-    </div>
-    <div
-      class=" w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
-    >
-      <input
-        type="text"
-        placeholder="Email"
-        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-        id="email-signup"
-      />
-    </div>
-
-    <div
-      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500"
-    >
-      <input
-        type="password"
-        placeholder="Password"
-        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-        id="password-signup"
-      />
-    </div>
-
-    <button
-      id="signup-user"
-      class="transform rounded-sm bg-indigo-600 py-2 font-bold duration-300 hover:bg-indigo-400"
-    >
-      CREATE ACCOUNT
-    </button>
-
-  </section>
 </main>
 
 <script src="../js/login.js"></script>
