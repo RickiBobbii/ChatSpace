@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const { createServer } = require("node:http");
 const { Server } = require("socket.io");
-const helpers = require('./utils/helpers');
+const helpers = require("./utils/helpers");
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -45,32 +45,23 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 io.on("connection", (socket) => {
-  console.log("User connected:", socket.id);
-
   socket.on("join", function (room) {
     socket.join(room);
     socket.room = room;
     console.log("User connected to room:", socket.room);
   });
 
+  socket.on("newuser", function (username) {
+    socket.broadcast.emit("userJoined", username + " joined the conversation");
+  });
+  socket.on("exituser", function (username) {
+    socket.broadcast.emit("userJoined", username + " left the conversation");
+  });
+
   socket.on("chat", function (message) {
     socket.to(socket.room).emit("chat", message);
-
-    console.log(message);
   });
 });
-
-// io.on("connection", function (socket) {
-//   socket.on("newuser", function (username) {
-//     socket.broadcast.emit("update", username + " joined the conversation");
-//   });
-//   socket.on("exituser", function (username) {
-//     socket.broadcast.emit("update", username + " left the conversation");
-//   });
-//   socket.on("chat", function (message) {
-//     socket.broadcast.emit("chat", message);
-//   });
-// });
 
 sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () =>

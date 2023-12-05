@@ -2,6 +2,8 @@ const socket = io();
 let username;
 
 document.querySelectorAll(".chatrooms").forEach((chatroom) => {
+  // chatroom.firstElementChild.textContent = capitalize(chatroom);
+
   chatroom.addEventListener("click", async function (e) {
     e.preventDefault();
 
@@ -11,20 +13,20 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
 
     const mainElement = document.querySelector("#main");
     const chatElement = document.querySelector(`#chat${chatroom.id}`);
-    socket.emit("join", `Room: ${chatroom.id}`);
     if (chatElement.className === "hide") {
+      socket.emit("join", `${chatroom.textContent.trim()}`);
+      socket.emit("newuser", username);
       document.querySelectorAll(".show").forEach((element) => {
         element.className = "hide";
       });
       document.querySelector(`#chat${chatroom.id}`).className = "show";
     } else {
+      socket.emit("exituser", username);
       chatElement.className = "hide";
       mainElement.className = "show";
     }
   });
 });
-
-socket.emit("newuser", username);
 
 document.querySelectorAll(".send-message").forEach((sendButton) => {
   sendButton.addEventListener("click", function () {
@@ -47,8 +49,8 @@ document.querySelectorAll(".send-message").forEach((sendButton) => {
   });
 });
 
-socket.on("update", function (update) {
-  renderMessage("update", update);
+socket.on("userJoined", function (update) {
+  renderMessage("userJoined", update);
 });
 
 socket.on("chat", function (message) {
@@ -59,7 +61,10 @@ function renderMessage(type, message) {
   let messageContainer = document.querySelector(".show .messages");
   if (type == "my") {
     let el = document.createElement("div");
-    el.setAttribute("class", "message my-message flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end");
+    el.setAttribute(
+      "class",
+      "message my-message flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end"
+    );
     el.innerHTML = `
           <div class="">
               <div class="name uppercase text-2xl flex justify-end"><a href="user/${message.username}">${message.username}</a></div>
@@ -69,7 +74,10 @@ function renderMessage(type, message) {
     messageContainer.appendChild(el);
   } else if (type == "other") {
     let el = document.createElement("div");
-    el.setAttribute("class", "message other-message flex w-full mt-2 space-x-3 max-w-xs mr-auto justify-start");
+    el.setAttribute(
+      "class",
+      "message other-message flex w-full mt-2 space-x-3 max-w-xs mr-auto justify-start"
+    );
     el.innerHTML = `
           <div>
             <div class="name uppercase text-2xl flex justify-start"><a href="user/${message.username}">${message.username}</a></div>
@@ -77,7 +85,7 @@ function renderMessage(type, message) {
           </div>
         `;
     messageContainer.appendChild(el);
-  } else if (type == "update") {
+  } else if (type == "userJoined") {
     let el = document.createElement("div");
     el.setAttribute("class", "update");
     el.innerText = message;
@@ -86,4 +94,21 @@ function renderMessage(type, message) {
   // scroll chat to end on new message
   messageContainer.scrollTop =
     messageContainer.scrollHeight - messageContainer.clientHeight;
+}
+
+function capitalize(input) {
+  var words = input.textContent.trim().split(" ");
+
+  for (var i = 0; i < words.length; i++) {
+    var word = words[i];
+    if (word) {
+      var firstLetter = word.charAt(0);
+      var firstLetterCap = firstLetter.toUpperCase();
+      var remainingLetters = word.slice(1);
+      var capitalizeWord = firstLetterCap + remainingLetters;
+      words[i] = capitalizeWord;
+    }
+  }
+
+  return words.join(" ");
 }

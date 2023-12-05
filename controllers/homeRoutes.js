@@ -44,9 +44,7 @@ router.get("/user/:username", async (req, res) => {
     );
 
     const userChatrooms = chatrooms.map((chatroom) => {
-      const hasTag = user.blogs.some(
-        (blog) => blog.tag === chatroom.title.toLowerCase()
-      );
+      const hasTag = user.blogs.some((blog) => blog.tag === chatroom.title);
       return {
         userHasTag: hasTag,
         ...chatroom,
@@ -97,9 +95,7 @@ router.get("/profile", async (req, res) => {
     );
 
     const userChatrooms = chatrooms.map((chatroom) => {
-      const hasTag = user.blogs.some(
-        (blog) => blog.tag === chatroom.title.toLowerCase()
-      );
+      const hasTag = user.blogs.some((blog) => blog.tag === chatroom.title);
       return {
         userHasTag: hasTag,
         ...chatroom,
@@ -162,9 +158,7 @@ router.get("/blog/:id", async (req, res) => {
 
     // checking if user has a blog with the chatroom tag
     const userChatrooms = chatrooms.map((chatroom) => {
-      const hasTag = user.blogs.some(
-        (blog) => blog.tag.toLowerCase() === chatroom.title.toLowerCase()
-      );
+      const hasTag = user.blogs.some((blog) => blog.tag === chatroom.title);
       return {
         userHasTag: hasTag,
         ...chatroom,
@@ -215,9 +209,7 @@ router.get("/testing", async (req, res) => {
 
     // checking if user has a blog with the chatroom tag
     const userChatrooms = chatrooms.map((chatroom) => {
-      const hasTag = user.blogs.some(
-        (blog) => blog.tag.toLowerCase() === chatroom.title.toLowerCase()
-      );
+      const hasTag = user.blogs.some((blog) => blog.tag === chatroom.title);
       return {
         userHasTag: hasTag,
         ...chatroom,

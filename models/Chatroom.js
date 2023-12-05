@@ -17,6 +17,11 @@ Chatroom.init(
     },
   },
   {
+    hooks: {
+      beforeCreate: function (chatroom) {
+        chatroom.title = chatroom.title.toLowerCase();
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
