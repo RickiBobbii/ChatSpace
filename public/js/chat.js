@@ -62,7 +62,7 @@ function renderMessage(type, message) {
     el.setAttribute("class", "message my-message");
     el.innerHTML = `
           <div>
-            <div class="name">${message.username}</div>
+            <div class="name"><a href="user/${message.username}">${message.username}</a></div>
             <div class="text">${message.text}</div>
           </div>
         `;
@@ -72,7 +72,7 @@ function renderMessage(type, message) {
     el.setAttribute("class", "message other-message");
     el.innerHTML = `
           <div>
-            <div class="name">${message.username}</div>
+            <div class="name"><a href="user/${message.username}">${message.username}</a></div>
             <div class="text">${message.text}</div>
           </div>
         `;
