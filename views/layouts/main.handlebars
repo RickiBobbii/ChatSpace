@@ -37,10 +37,12 @@
         {{/if}}
       </nav>
     </header>
-    <div class="flex flex-row">
+    {{!-- TEST full height --}}
+    <div class="flex flex-row h-screen">
       {{#if logged_in}}
         <aside
-          class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/12 flex flex-col items-center"
+        {{!-- TEST mobile hidden  --}}
+          class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/12 flex flex-col items-center hidden lg:block"
         >
           {{#each chatrooms as |chatroom|}}
             {{#if chatroom.userHasTag}}
@@ -51,9 +53,10 @@
           {{/each}}
         </aside>
       {{/if}}
-      {{!-- TESTING main look, changed width --}}
-      <main class="w-full mx-auto mt-5">
-      <div id="main" class="show">
+      {{!-- TESTING main look, changed width and mt, w-full for body render --}}
+      <main class="w-full mx-auto flex justify-center">
+        {{!-- TEST w-full for profile render--}}
+      <div id="main" class="show w-full">
         {{{body}}}
       </div>
         {{> chatrooms}}
