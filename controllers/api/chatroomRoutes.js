@@ -32,4 +32,19 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.get("/rooms", async (req, res) => {
+  try {
+    const chatroomData = await Chatroom.findAll();
+
+    const rooms = chatroomData.map((chatroom) =>
+    chatroom.get({ plain: true })
+  );
+
+    res.status(200).json(rooms);
+  } catch (err) {
+    res.status(400).json(err);
+    console.log("error");
+  }
+});
+
 module.exports = router;
