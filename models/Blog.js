@@ -36,6 +36,11 @@ Blog.init(
     },
   },
   {
+    hooks: {
+      beforeCreate: function (blog) {
+        blog.tag = blog.tag.toLowerCase();
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
