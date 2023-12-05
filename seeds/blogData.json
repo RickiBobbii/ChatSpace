@@ -14,15 +14,39 @@
     "tag": "music"
   },
   {
-    "title": "A Blog About My Cat",
+    "title": "A Blog About My Dog",
     "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
     "user_id": 2,
     "tag": "animals"
   },
   {
+    "title": "A Blog About My Cat",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "user_id": 1,
+    "tag": "animals"
+  },
+  {
+    "title": "The Best Music Genre",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "user_id": 3,
+    "tag": "music"
+  },
+  {
+    "title": "The Truth Behind Jar-Jar Binks",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "user_id": 1,
+    "tag": "movies"
+  },
+  {
     "title": "My Fav Anime",
     "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
     "user_id": 3,
+    "tag": "anime"
+  },
+  {
+    "title": "The First Animes You Should Watch",
+    "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam dolorem illo exercitationem sunt quis, totam rem voluptate soluta facilis sit, blanditiis, quasi porro at laudantium nobis consequatur nam illum ipsam.",
+    "user_id": 2,
     "tag": "anime"
   }
 ]

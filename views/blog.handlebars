@@ -1,0 +1,114 @@
+<div
+  class="text-center rounded-sm border-2 p-6 drop-shadow-md bg-transparent border-slate-500"
+>
+  <h2 class="text-2xl font-bold" id="oldBlogTitle">{{title}}</h2>
+  <p class="text-sm">Created by
+    <strong>{{user.username}}</strong>
+    on
+    {{format_date date_created}}</p>
+  <p class="mt-4 font-semibold" id="oldContent">{{content}}</p>
+  {{#if isAuthor}}
+    <button
+      id="editButton"
+      class="absolute left-4 top-4 text-sm font-bold rounded-sm bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
+    >Edit Blog</button>
+
+    <button
+      id="delButton"
+      data-id="{{id}}"
+      class="absolute right-4 top-4 text-sm font-bold rounded-sm bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
+    >Delete Blog</button>
+  {{/if}}
+  <form class="form editBlogForm mt-4" data-id="{{id}}" style="display: none;">
+    <div class="flex justify-center">
+      <hr class="border border-slate-400 mb-4 w-48 rounded-lg" />
+    </div>
+    <h3 class="text-center font-bold text-xl mb-1">Edit Blog</h3>
+    <div class="flex flex-col items-center gap-2 my-4">
+      <label class="flex-nowrap font-bold" for="newBlogTitle">New Blog Title:</label>
+      <input
+        class="w-full p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none"
+        type="text"
+        id="newBlogTitle"
+        name="newBlogTitle"
+      />
+    </div>
+    <div class="flex flex-col items-center gap-2 mb-4">
+      <label class="font-bold" for="blogContent">Content:</label>
+      <textarea
+        class="w-full h-64 p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none"
+        id="newBlogContent"
+        name="newBlogContent"
+      ></textarea>
+    </div>
+    <div class="flex justify-center items-center">
+      <button
+        type="submit"
+        class="mt-2 border-2 font-bold border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
+      >Edit Blog</button>
+    </div>
+  </form>
+</div>
+
+<div class="mt-5">
+  <h3 class="text-center font-bold text-xl mb-1">Leave a Comment!</h3>
+  {{#if logged_in}}
+    <form class="form newCommentForm mb-4" data-id="{{id}}">
+
+      <div class="flex items-center gap-2 justify-center">
+        <textarea
+          class="w-6/12 h-24 p-2 my-2 bg-transparent rounded-sm border-2 border-slate-500 focus:outline-none"
+          id="comment"
+          name="comment"
+        ></textarea>
+      </div>
+      <div class="flex justify-center items-center">
+        <button
+          type="submit"
+          class="mt-2 font-bold rounded-sm bg-slate-400 p-2 px-3 text-slate-800 duration-300 hover:bg-indigo-200"
+        >Leave Comment</button>
+      </div>
+    </form>
+  {{else}}
+    <p class="m-4 text-center font-semibold">You must be logged in to leave a
+      comment</p>
+  {{/if}}
+  {{#if comments.length}}
+    <div class="commentList">
+      <h3 class="mb-4 text-lg font-semibold text-slate-900">Recent Comments:
+      </h3>
+      {{#each comments as |comment|}}
+        <div class="my-3">
+          <div
+            class="flex border rounded-md px-4 py-2 sm:px-6 sm:py-4 leading-relaxed"
+          >
+            <div class="flex-1">
+              <strong class="text-xl">
+                {{comment.user.username}}
+              </strong>
+              <span class="ml-1 text-xs text-slate-400">{{format_date
+                  comment.date_created
+                }}</span>
+              <p class="text-md">
+                {{comment.comment}}
+              </p>
+
+            </div>
+            {{#if comment.userIsAuthor}}
+              <div class="flex justify-end items-center">
+                <button
+                  class="font-bold text-sm rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
+                  data-id="{{comment.id}}"
+                >DELETE</button>
+              </div>
+            {{/if}}
+          </div>
+
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
+<script src="../js/comment.js"></script>
+<script src="../js/editBlog.js"></script>
