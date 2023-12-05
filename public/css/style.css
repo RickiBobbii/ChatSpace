@@ -820,6 +820,14 @@ video {
   justify-content: space-between;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-stretch {
+  justify-content: stretch;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1419,6 +1427,10 @@ video {
     max-width: 28rem;
   }
 
+  .sm\:justify-between {
+    justify-content: space-between;
+  }
+
   .sm\:p-8 {
     padding: 2rem;
   }
@@ -1459,6 +1471,10 @@ video {
 @media (min-width: 1024px) {
   .lg\:ml-8 {
     margin-left: 2rem;
+  }
+
+  .lg\:justify-end {
+    justify-content: flex-end;
   }
 
   .lg\:py-0 {
