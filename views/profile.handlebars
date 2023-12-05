@@ -2,18 +2,39 @@
     class="bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] bg-[#292240] flex items-center justify-center min-h-screen text-[#9e9cb6]">
     <section
         class="w-full max-w-[430px] relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-hidden">
-        {{!-- <a href="https://ionel.olariu.dev" target="_blank" class="">
-            <img src="https://avatars.githubusercontent.com/u/25511379?v=4" class="rounded-full w-[120px] mx-auto my-10 p-0 border-[6px] box-content border-[#231f39] shadow-[0px_27px_16px_-11px_rgba(31,27,56,0.25)] transition-all duration-150 ease-in hover:scale-105 cursor-pointer slide-in-elliptic-top-fwd">
-        </a> --}}
-        <h1 class="text-xl font-bold text-center">{{username}}</h1>
-        <small class="block my-1 text-center">NEW YORK</small>
-        <p class="mt-5 text-center">User Interface design and front<br> end developer.</p>
-        <div class="flex items-center justify-center gap-2 w-[80%] mx-auto mt-5 mb-10">
-            <button class="flex-1 border border-[#231f39] rounded-[4px] py-3 text-white bg-[#231f39] transition-all duration-150 ease-in hover:bg-[#472e99]">Message</button>
-            <button class="flex-1 border border-[#231f39] text-[#ffffff] rounded-[4px] py-3 transition-all duration-150 ease-in hover:bg-[#472e99]  hover:text-white">Following</button>
+        <h2 class="text-2xl text-slate-300 uppercase text-center">Welcome {{username}}!</h2>
+        <div>
+            <h2 class="mt-5 text-center">Your Blogs:</h2>
+                {{#if blogs.length}}
+                    <div class="blogList">
+                        {{#each blogs as |blog|}}
+                          <div class="flex justify-center">
+                            <div
+                              class="flex justify-between items-center border-2 rounded-md p-2 bg-slate-600 border-slate-600 mb-2"
+                            >
+                              <div>
+                                <a href="/blog/{{blog.id}}">
+                                  <h4
+                                    class="font-bold text-lg transition-all duration-200 transform hover:scale-105 mr-4"
+                                  >{{blog.title}}</h4>
+                                </a>
+                                {{#if blog.tag}}
+                                  <p>Tag: {{blog.tag}}</p>
+                                {{/if}}
+                              </div>
+                              <button
+                                class="border-2 font-bold text-sm border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
+                                data-id="{{blog.id}}"
+                              >DELETE</button>
+                            </div>
+                          </div>
+                        {{/each}}
+                    </div>
+                {{/if}}
         </div>
+        
         <div class="bg-[#1e1a36]/70 p-4 text-sm font-semibold backdrop-blur-sm">
-            <p>Interests</p>
+            <h3 class="text-2xl text-slate-300 uppercase">Active Chats:</h3>
             {{!-- active joined chats --}}
             {{#if blogs.length}}
             <ul
@@ -26,3 +47,5 @@
         </div>
     </section>
     </div> 
+
+    <script src="/js/blog.js"></script>
