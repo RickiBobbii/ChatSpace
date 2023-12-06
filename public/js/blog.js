@@ -17,7 +17,8 @@ const newFormHandler = async (event) => {
 
     if (response.ok) {
       form.classList.add("hidden")
-      window.location.reload();
+      //TEST chatroom show up immediatly instead of clicking chatSpace button
+      window.location.replace("/");
     } else {
       alert("Failed to create blog post");
     }
@@ -42,6 +43,12 @@ const delButtonHandler = async (event) => {
 
 const createButtonHandler = async (event) => {
   event.preventDefault();
+
+  //TEST hide create button on create form
+  const hideBtn = document.querySelector("#hide-btn");
+  hideBtn.classList.add("hidden");
+  const hideBlogList = document.querySelector(".blogList");
+  hideBlogList.classList.add("hidden");
 
   const createButton = document.querySelector(".createBlogForm");
   createButton.classList.remove("hidden");
@@ -88,6 +95,9 @@ async function newChat(event) {
   }
 }
 
+// const hideBtnHandler = async (event) => {
+//   event.preventDefault();
+// }
 document
   .querySelector(".newBlogForm")
   .addEventListener("submit", newFormHandler);
