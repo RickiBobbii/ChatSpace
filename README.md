@@ -80,11 +80,11 @@
 
 ## Screenshot
 
-![](./assets/)
+![](./public/css/assets/images/logins-screenshot.png)
 
 ## Application link
 
-[Click here](./imgs/logins-screenshot.png)
+[Click here]()
 
 ## Credits
 
