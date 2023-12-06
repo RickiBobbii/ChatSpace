@@ -241,13 +241,11 @@ router.get("/tag/:tag", async (req, res) => {
     const blogData = await Blog.findAll({
       where: { tag: req.params.tag },
       include: [{ model: User, attributes: ["username"] }],
-      // raw: true,
     });
 
     const blog = blogData.map((blog) => {
       return blog.get({ plain: true });
     });
-    console.log(blog);
 
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
