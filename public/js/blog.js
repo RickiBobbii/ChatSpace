@@ -59,6 +59,8 @@ const closeFormHandler = async (event) => {
   
   const createButton = document.querySelector(".createBlogForm");
   createButton.classList.add("hidden");
+  //TEST refresh page
+  window.location.replace("/");
 }
 
 async function newChat(event) {
