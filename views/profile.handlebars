@@ -1,53 +1,59 @@
 <div
-    class="bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] bg-[#292240] flex items-center justify-center min-h-screen text-[#9e9cb6]">
-    <section
-        class="w-full max-w-[430px] relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-hidden">
-        <h2 class="text-2xl text-slate-300 uppercase text-center">{{username}}'s Page</h2>
-        <div>
-            <h2 class=" text-xl text-slate-300 uppercase mt-5 text-center">Your Blogs:</h2>
-                {{#if blogs.length}}
-                    <div class="blogList">
-                        {{#each blogs as |blog|}}
-                          <div class="flex justify-center">
-                            <div
-                              class="flex justify-between items-center border-2 rounded-md p-2 bg-slate-600 border-slate-600 mb-2"
-                            >
-                              <div>
-                                <a href="/blog/{{blog.id}}">
-                                  <h4
-                                    class="font-bold text-lg transition-all duration-200 transform hover:scale-105 mr-4"
-                                  >{{blog.title}}</h4>
-                                </a>
-                                {{#if blog.tag}}
-                                  <p>Tag: {{blog.tag}}</p>
-                                {{/if}}
-                              </div>
-                              <button
-                                class="border-2 font-bold text-sm border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
-                                data-id="{{blog.id}}"
-                              >DELETE</button>
-                            </div>
-                          </div>
-                        {{/each}}
-                    </div>
-                {{/if}}
-                <div class="flex justify-center items-center createNew">
-                    <button
-                        type="submit"
-                        class="my-4 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
-                    >Create New Blog</button>
+  class="bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] bg-[#292240] flex items-center justify-center min-h-screen text-[#9e9cb6]"
+>
+  <section
+    class="w-full max-w-[430px] relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-hidden"
+  >
+    <h2 class="text-2xl text-slate-300 uppercase text-center">Welcome
+      {{username}}!</h2>
+    <div>
+      <h2 class="text-xl text-slate-300 uppercase mt-5 text-center">Your Blogs:</h2>
+      {{#if blogs.length}}
+        <div class="blogList">
+          {{#each blogs as |blog|}}
+            <div class="flex justify-center">
+              <div
+                class="flex justify-between items-center border-2 rounded-md p-2 bg-slate-600 border-slate-600 mb-2"
+              >
+                <div>
+                  <a href="/blog/{{blog.id}}">
+                    <h4
+                      class="font-bold text-lg transition-all duration-200 transform hover:scale-105 mr-4"
+                    >{{blog.title}}</h4>
+                  </a>
+                  {{#if blog.tag}}
+                    <p>Tag: {{blog.tag}}</p>
+                  {{/if}}
                 </div>
+                <button
+                  class="border-2 font-bold text-sm border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
+                  data-id="{{blog.id}}"
+                >DELETE</button>
+              </div>
+            </div>
+          {{/each}}
         </div>
-        
-        <div class="bg-[#1e1a36]/70 p-4 text-sm font-semibold backdrop-blur-sm">
-            <h3 class="text-2xl text-slate-300 uppercase">Users Tags:</h3>
-            {{#if blogs.length}}
-            <ul class="flex mt-4 flex-wrap items-center justify-start gap-2 gap-y-3 [&>li]:border-2 [&>li]:border-[#2f2a47] [&>li]:px-3 [&>li]:py-1 [&>li]:rounded-[4px] [&>li]:transition-all [&>li]:duration-150 [&>li]:ease-in [&>li:hover]:scale-105 [&>li:hover]:cursor-pointer">
-              {{#each blogs as |blog|}}
-              <li>{{blog.tag}}</li>  
-              {{/each}}
-            </ul>
-            {{/if}}
-        </div>
-        </section>
-    </div> 
+      {{/if}}
+      <div class="flex justify-center items-center newBlogForm">
+        <button
+          type="submit"
+          class="mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
+        >Create New Blog</button>
+      </div>
+    </div>
+
+    <div class="bg-[#1e1a36]/70 p-4 text-sm font-semibold backdrop-blur-sm">
+      <h3 class="text-2xl text-slate-300 uppercase">Active Chats:</h3>
+      {{! active joined chats }}
+      {{#if blogs.length}}
+        <ul
+          class="flex mt-4 flex-wrap items-center justify-start gap-2 gap-y-3 [&>li]:border-2 [&>li]:border-[#2f2a47] [&>li]:px-3 [&>li]:py-1 [&>li]:rounded-[4px] [&>li]:transition-all [&>li]:duration-150 [&>li]:ease-in [&>li:hover]:scale-105 [&>li:hover]:cursor-pointer"
+        >
+          {{#each blogs as |blog|}}
+            <li><a href="/tag/{{blog.tag}}">{{blog.tag}}</a></li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </div>
+  </section>
+</div>
