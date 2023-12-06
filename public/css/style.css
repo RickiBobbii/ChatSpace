@@ -572,14 +572,6 @@ video {
   visibility: hidden;
 }
 
-.static {
-  position: static;
-}
-
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -598,10 +590,6 @@ video {
 
 .top-4 {
   top: 1rem;
-}
-
-.bottom-64 {
-  bottom: 16rem;
 }
 
 .m-4 {
@@ -638,13 +626,12 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
 }
 
 .mb-2 {
@@ -665,6 +652,10 @@ video {
 
 .ml-1 {
   margin-left: 0.25rem;
+}
+
+.ml-8 {
+  margin-left: 2rem;
 }
 
 .ml-auto {
@@ -699,16 +690,12 @@ video {
   margin-top: 1.25rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .ml-2 {
   margin-left: 0.5rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
 }
 
 .block {
@@ -739,17 +726,20 @@ video {
   height: 100vh;
 }
 
-.min-h-fit {
-  min-height: -moz-fit-content;
-  min-height: fit-content;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
 
+.w-11\/12 {
+  width: 91.666667%;
+}
+
 .w-2\/12 {
   width: 16.666667%;
+}
+
+.w-3\/5 {
+  width: 60%;
 }
 
 .w-48 {
@@ -760,16 +750,12 @@ video {
   width: 1.25rem;
 }
 
-.w-5\/6 {
-  width: 83.333333%;
+.w-5\/12 {
+  width: 41.666667%;
 }
 
 .w-6\/12 {
   width: 50%;
-}
-
-.w-7\/12 {
-  width: 58.333333%;
 }
 
 .w-9\/12 {
@@ -780,8 +766,8 @@ video {
   width: 100%;
 }
 
-.max-w-4xl {
-  max-width: 56rem;
+.w-7\/12 {
+  width: 58.333333%;
 }
 
 .max-w-\[430px\] {
@@ -792,12 +778,12 @@ video {
   max-width: 20rem;
 }
 
-.flex-1 {
-  flex: 1 1 0%;
+.max-w-4xl {
+  max-width: 56rem;
 }
 
-.basis-64 {
-  flex-basis: 16rem;
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .transform {
@@ -848,11 +834,6 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
-}
-
-.gap-x-24 {
-  -moz-column-gap: 6rem;
-       column-gap: 6rem;
 }
 
 .gap-y-3 {
@@ -925,9 +906,23 @@ video {
   border-width: 2px;
 }
 
+.border-solid {
+  border-style: solid;
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-gray-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(17 24 39 / var(--tw-border-opacity));
+}
+
+.border-sky-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(14 165 233 / var(--tw-border-opacity));
 }
 
 .border-slate-400 {
@@ -973,6 +968,11 @@ video {
   background-color: rgb(190 24 93 / var(--tw-bg-opacity));
 }
 
+.bg-sky-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 132 199 / var(--tw-bg-opacity));
+}
+
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
@@ -1016,8 +1016,16 @@ video {
   background-image: radial-gradient(ellipse at center, var(--tw-gradient-stops));
 }
 
+.bg-\[url\(\.\/assets\/images\/ai-image-10\.jpg\)\] {
+  background-image: url(./assets/images/ai-image-10.jpg);
+}
+
 .bg-\[url\(https\:\/\/neluttu\.github\.io\/pro-profile\/wallpaper\.jpg\)\] {
   background-image: url(https://neluttu.github.io/pro-profile/wallpaper.jpg);
+}
+
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-r {
@@ -1052,6 +1060,10 @@ video {
 
 .to-slate-900 {
   --tw-gradient-to: #0f172a var(--tw-gradient-to-position);
+}
+
+.bg-cover {
+  background-size: cover;
 }
 
 .p-2 {
@@ -1118,6 +1130,10 @@ video {
   padding-bottom: 2rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1125,6 +1141,11 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-5xl {
@@ -1150,6 +1171,10 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.font-black {
+  font-weight: 900;
 }
 
 .font-bold {
@@ -1311,6 +1336,16 @@ video {
   margin: 0;
 }
 
+.image-container {
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-image: url(./assets/images/ai-image5.jpg);
+}
+
+.text-shadow {
+  text-shadow: #FC0 1px 0 10px;
+}
+
 .hover\:scale-105:hover {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
@@ -1413,6 +1448,10 @@ video {
     max-width: 28rem;
   }
 
+  .sm\:justify-between {
+    justify-content: space-between;
+  }
+
   .sm\:p-8 {
     padding: 2rem;
   }
@@ -1451,6 +1490,14 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:ml-8 {
+    margin-left: 2rem;
+  }
+
+  .lg\:justify-end {
+    justify-content: flex-end;
+  }
+
   .lg\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;

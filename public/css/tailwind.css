@@ -17,3 +17,12 @@
   transform: translate(-50%, -50%);
   margin: 0;
 }
+
+.image-container {
+  object-fit: cover;
+  background-image: url(./assets/images/ai-image5.jpg);
+}
+
+.text-shadow {
+  text-shadow: #FC0 1px 0 10px;
+}
