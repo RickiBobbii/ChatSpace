@@ -114,6 +114,10 @@ router.get("/profile", async (req, res) => {
 });
 
 router.get("/blog/:id", async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -237,17 +241,24 @@ router.get("/testing", async (req, res) => {
 });
 
 router.get("/tag/:tag", async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
   try {
     const blogData = await Blog.findAll({
       where: { tag: req.params.tag },
-      raw: true,
+      include: [{ model: User, attributes: ["username"] }],
+    });
+
+    const blog = blogData.map((blog) => {
+      return blog.get({ plain: true });
     });
 
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [{ model: Blog, attributes: ["tag"] }],
     });
-
     const user = userData.get({ plain: true });
 
     const chatroomData = await Chatroom.findAll({});
@@ -266,7 +277,7 @@ router.get("/tag/:tag", async (req, res) => {
     });
 
     res.render("tags", {
-      blogs: blogData,
+      blogs: blog,
       chatrooms: userChatrooms,
       logged_in: req.session.logged_in,
       tag: req.params.tag,
