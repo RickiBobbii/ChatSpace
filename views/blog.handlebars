@@ -4,10 +4,16 @@
   <h2 class="text-2xl font-bold" id="oldBlogTitle">{{title}}</h2>
   <p class="text-sm">Created by
     <strong>
-      <a href="/user/{{user.username}}/">{{user.username}}</a>
+      <a
+        class="duration-300 hover:text-indigo-400"
+        href="/user/{{user.username}}/"
+      >{{user.username}}</a>
     </strong>
     on
     {{format_date date_created}}</p>
+  <p class="text-xs duration-300 hover:text-indigo-400"><a
+      href="/tag/{{tag}}"
+    >#{{tag}}</a></p>
   <p class="mt-4 font-semibold" id="oldContent">{{content}}</p>
   {{#if isAuthor}}
     <button
@@ -72,7 +78,8 @@
       </div>
     </form>
   {{else}}
-    <p class="m-4 text-center font-semibold">You must be logged in to leave a comment</p>
+    <p class="m-4 text-center font-semibold">You must be logged in to leave a
+      comment</p>
   {{/if}}
   {{#if comments.length}}
     <div class="commentList">

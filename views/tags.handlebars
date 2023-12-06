@@ -17,12 +17,21 @@
                 <div>
                   <a href="/blog/{{blog.id}}">
                     <h4
-                      class="font-bold text-lg mr-4 ml-1 duration-300 hover:text-indigo-200"
+                      class="font-bold text-lg mr-8 duration-300 hover:text-indigo-400"
                     >{{blog.title}}</h4>
                   </a>
-                  <p class="ml-2">Author: {{user.username}}</p>
+                  <p class="ml-2">Author:
+                    <a
+                      href="/user/{{user.username}}"
+                      class="duration-300 hover:text-indigo-400"
+                    >{{user.username}}</a></p>
                   {{#if blog.tag}}
-                    <p class="ml-2">Tag: {{blog.tag}}</p>
+                    <p class="ml-2">Tag:
+                      <a
+                        href="tag/{{blog.tag}}"
+                        class="duration-300 hover:text-indigo-400"
+                      >{{blog.tag}}</a></p>
+
                   {{/if}}
                 </div>
               </div>

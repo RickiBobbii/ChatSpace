@@ -4,7 +4,9 @@
   <section
     class="w-3/5 max-w-lg relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-hidden"
   >
-    <h2 class="my-3 text-2xl text-slate-300 uppercase text-center">{{username}}'s Page</h2>
+    <h2
+      class="my-3 text-2xl text-slate-300 uppercase text-center"
+    >{{username}}'s Page</h2>
     <div>
       <h2 class="text-xl text-slate-300 uppercase my-5 text-center">Blogs:</h2>
       {{#if blogs.length}}
@@ -21,24 +23,29 @@
                     >{{blog.title}}</h4>
                   </a>
                   {{#if blog.tag}}
-                    <p>Tag: {{blog.tag}}</p>
+                    <p>Tag: <a href="/tag/{{blog.tag}}">{{blog.tag}}</a></p>
                   {{/if}}
                 </div>
-                <button
-                  class="border-2 font-bold text-sm border-slate-500 rounded-md bg-slate-400 p-2 text-slate-800 transition-all duration-200 transform hover:scale-105"
-                  data-id="{{blog.id}}"
-                >DELETE</button>
+                {{#if isAuthor}}
+                  <div>
+                    <button
+                      class="text-sm font-bold text-md rounded-sm bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
+                      data-id="{{blog.id}}"
+                    >DELETE</button></div>
+                {{/if}}
               </div>
             </div>
           {{/each}}
         </div>
       {{/if}}
-      <div class="my-4 flex justify-center items-center">
-        <button
-          type="submit"
-          class="createNew mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
-        >Create New Blog</button>
-      </div>
+      {{#if currentUser}}
+        <div class="my-4 flex justify-center items-center">
+          <button
+            type="submit"
+            class="createNew mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
+          >Create New Blog</button>
+        </div>
+      {{/if}}
     </div>
 
     <div class="bg-[#1e1a36]/70 p-4 text-sm font-semibold backdrop-blur-sm">
@@ -56,3 +63,5 @@
     </div>
   </section>
 </div>
+
+<script src="/js/blog.js"></script>
