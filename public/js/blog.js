@@ -47,7 +47,7 @@ const createButtonHandler = async (event) => {
   const hideBtn = document.querySelector("#hide-btn");
   hideBtn.classList.add("hidden");
   const hideBlogList = document.querySelector(".blogList");
-  hideBlogList.classList.add("hidden");
+  hideBlogList.style.visibility = "hidden";
 
   const createButton = document.querySelector(".createBlogForm");
   createButton.classList.remove("hidden");
@@ -59,7 +59,7 @@ const closeFormHandler = async (event) => {
   const hideBtn = document.querySelector("#hide-btn");
   hideBtn.classList.remove("hidden");
   const hideBlogList = document.querySelector(".blogList");
-  hideBlogList.classList.remove("hidden");
+  hideBlogList.style.visibility = "visible";
 
   const createButton = document.querySelector(".createBlogForm");
   createButton.classList.add("hidden");
