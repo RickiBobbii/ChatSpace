@@ -59,8 +59,9 @@
       <div id="main" class="show w-full">
         {{{body}}}
       </div>
-        {{> createBlog}}
         {{> chatrooms}}
+        {{!-- blog creation partial --}}
+        {{> createBlog}}
       </main>
     </div>
     {{#if logged_in}}

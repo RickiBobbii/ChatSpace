@@ -47,6 +47,13 @@ const createButtonHandler = async (event) => {
   createButton.classList.remove("hidden");
 }
 
+const closeFormHandler = async (event) => {
+  event.preventDefault();
+  
+  const createButton = document.querySelector(".createBlogForm");
+  createButton.classList.add("hidden");
+}
+
 async function newChat(event) {
   event.preventDefault();
   const tag = document.querySelector("#blogTag").value.trim();
@@ -88,6 +95,10 @@ document
 document
   .querySelector(".createNew")
   .addEventListener("click", createButtonHandler);
+
+document
+  .querySelector("#closeForm")  
+  .addEventListener("click", closeFormHandler);
 
 if (document.querySelector(".blogList"))
   document
