@@ -43,6 +43,12 @@ const delButtonHandler = async (event) => {
 const createButtonHandler = async (event) => {
   event.preventDefault();
 
+  //TEST hide create button on create form
+  const hideBtn = document.querySelector("#hide-btn");
+  hideBtn.classList.add("hidden");
+  const hideBlogList = document.querySelector(".blogList");
+  hideBlogList.classList.add("hidden");
+
   const createButton = document.querySelector(".createBlogForm");
   createButton.classList.remove("hidden");
 };
@@ -52,6 +58,8 @@ const closeFormHandler = async (event) => {
 
   const createButton = document.querySelector(".createBlogForm");
   createButton.classList.add("hidden");
+  //TEST refresh page
+  window.location.replace("/");
 };
 
 async function newChat(event) {
@@ -101,9 +109,9 @@ if (document.querySelector(".createNew")) {
 }
 
 if (document.querySelector("#closeForm")) {
-document
-  .querySelector("#closeForm")
-  .addEventListener("click", closeFormHandler);
+  document
+    .querySelector("#closeForm")
+    .addEventListener("click", closeFormHandler);
 }
 
 if (document.querySelector(".blogList")) {
