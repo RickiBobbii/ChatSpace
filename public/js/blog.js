@@ -56,10 +56,13 @@ const createButtonHandler = async (event) => {
 const closeFormHandler = async (event) => {
   event.preventDefault();
 
+  const hideBtn = document.querySelector("#hide-btn");
+  hideBtn.classList.remove("hidden");
+  const hideBlogList = document.querySelector(".blogList");
+  hideBlogList.classList.remove("hidden");
+
   const createButton = document.querySelector(".createBlogForm");
   createButton.classList.add("hidden");
-  //TEST refresh page
-  window.location.replace("/");
 };
 
 async function newChat(event) {

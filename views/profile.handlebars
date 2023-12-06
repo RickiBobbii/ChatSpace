@@ -8,7 +8,14 @@
       class="my-3 text-2xl text-slate-300 uppercase text-center"
     >{{username}}'s Page</h2>
     <div>
-      <h2 class="text-xl text-slate-300 uppercase my-5 text-center">Your Blogs:</h2>
+      {{#if currentUser}}
+        <h2 class="text-xl text-slate-300 uppercase my-5 text-center">Your
+          Blogs:</h2>
+      {{else}}
+        <h2
+          class="text-xl text-slate-300 uppercase my-5 text-center"
+        >{{username}}'s Blogs:</h2>
+      {{/if}}
       {{#if blogs.length}}
         <div class="blogList">
           {{#each blogs as |blog|}}
@@ -42,6 +49,7 @@
         <div class="my-4 flex justify-center items-center">
           <button
             type="submit"
+            id="hide-btn"
             class="createNew mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
           >Create New Blog</button>
         </div>
@@ -64,4 +72,4 @@
   </section>
 </div>
 
-{{!-- <script src="/js/blog.js"></script> --}}
+{{! <script src="/js/blog.js"></script> }}

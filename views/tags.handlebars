@@ -20,18 +20,17 @@
                       class="font-bold text-lg mr-8 duration-300 hover:text-indigo-400"
                     >{{blog.title}}</h4>
                   </a>
-                  <p class="ml-2">Author:
+                  <p>Author:
                     <a
                       href="/user/{{user.username}}"
                       class="duration-300 hover:text-indigo-400"
                     >{{user.username}}</a></p>
                   {{#if blog.tag}}
-                    <p class="ml-2">Tag:
+                    <p>Tag:
                       <a
                         href="tag/{{blog.tag}}"
                         class="duration-300 hover:text-indigo-400"
                       >{{blog.tag}}</a></p>
-
                   {{/if}}
                 </div>
               </div>
