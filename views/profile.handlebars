@@ -4,15 +4,15 @@
   <section
     class="w-full max-w-[430px] relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-hidden"
   >
-    <h2 class="text-2xl text-slate-300 uppercase text-center">{{username}}'s Page</h2>
+    <h2 class="my-3 text-2xl text-slate-300 uppercase text-center">{{username}}'s Page</h2>
     <div>
-      <h2 class="text-xl text-slate-300 uppercase mt-5 text-center">Blogs:</h2>
+      <h2 class="text-xl text-slate-300 uppercase my-5 text-center">Blogs:</h2>
       {{#if blogs.length}}
         <div class="blogList">
           {{#each blogs as |blog|}}
             <div class="flex justify-center">
               <div
-                class="flex justify-between items-center border-2 rounded-md p-2 bg-slate-600 border-slate-600 mb-2"
+                class="flex justify-between items-center border-2 rounded-md p-2 bg-slate-600 border-slate-600 mb-2 w-11/12"
               >
                 <div>
                   <a href="/blog/{{blog.id}}">
