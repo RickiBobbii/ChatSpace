@@ -24,7 +24,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
     } else {
       socket.emit("exituser", username);
       chatElement.className = "hide";
-      mainElement.className = "show";
+      mainElement.className = "show w-full";
     }
   });
 });
