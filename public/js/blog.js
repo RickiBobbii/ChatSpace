@@ -100,11 +100,11 @@ if (document.querySelector(".createNew")) {
     .addEventListener("click", createButtonHandler);
 }
 
-// if (document.querySelector("#closeForm")) {
-  document
-    .querySelector("#closeForm")
-    .addEventListener("click", closeFormHandler);
-// }
+if (document.querySelector("#closeForm")) {
+document
+  .querySelector("#closeForm")
+  .addEventListener("click", closeFormHandler);
+}
 
 if (document.querySelector(".blogList")) {
   document
