@@ -231,7 +231,7 @@ router.get("/testing", async (req, res) => {
       };
     });
 
-    res.render("testing", {
+    res.render("mainpage", {
       chatrooms: userChatrooms,
       blogs: userBlogs,
       username: user.username,
