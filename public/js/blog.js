@@ -4,6 +4,7 @@ const newFormHandler = async (event) => {
   const title = document.querySelector("#blogTitle").value.trim();
   const content = document.querySelector("#blogContent").value.trim();
   const tag = document.querySelector("#blogTag").value.trim();
+  const form = document.querySelector(".createBlogForm")
 
   if (title && content) {
     const response = await fetch(`/api/blogs`, {
@@ -15,7 +16,8 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/testing");
+      form.classList.add("hidden")
+      window.location.reload();
     } else {
       alert("Failed to create blog post");
     }
@@ -37,6 +39,13 @@ const delButtonHandler = async (event) => {
     }
   }
 };
+
+const createButtonHandler = async (event) => {
+  event.preventDefault();
+
+  const createButton = document.querySelector(".createBlogForm");
+  createButton.classList.remove("hidden");
+}
 
 async function newChat(event) {
   event.preventDefault();
@@ -65,7 +74,7 @@ async function newChat(event) {
     });
 
     if (response.ok) {
-      document.location.replace("/testing");
+      console.log("Successfully made new chatroom")
     } else {
       alert("Failed to create new chatroom");
     }
@@ -75,6 +84,10 @@ async function newChat(event) {
 document
   .querySelector(".newBlogForm")
   .addEventListener("submit", newFormHandler);
+
+document
+  .querySelector(".createNew")
+  .addEventListener("click", createButtonHandler);
 
 if (document.querySelector(".blogList"))
   document

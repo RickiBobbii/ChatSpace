@@ -70,6 +70,9 @@ router.get("/profile", async (req, res) => {
   }
   try {
     const blogData = await Blog.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
       include: [
         {
           model: User,
