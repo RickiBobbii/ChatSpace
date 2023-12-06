@@ -40,7 +40,7 @@
       {{#if logged_in}}
         <aside
         {{!-- TEST mobile hidden  hidden lg:block--}}
-          class="height bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/12 flex flex-col items-center"
+          class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/12 flex flex-col items-center"
         >
           {{#each chatrooms as |chatroom|}}
             {{#if chatroom.userHasTag}}
@@ -54,7 +54,7 @@
         </aside>
       {{/if}}
       {{!-- TESTING main look, changed width and mt, w-full for body render --}}
-      <main class="w-full mx-auto flex justify-center height">
+      <main class="w-full mx-auto flex justify-center">
         {{!-- TEST w-full for profile render--}}
       <div id="main" class="show w-full">
         {{{body}}}
