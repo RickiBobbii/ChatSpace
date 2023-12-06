@@ -1,47 +1,49 @@
-<div class="createBlogForm bg-slate-900 border text-gray-300 mx-2 rounded-[6px] w-7/12 absolute hidden" style="top: 25%;">
-      <h3 class="text-center font-bold text-xl my-2">Create a New Blog</h3>
+<div
+  class="createBlogForm bg-slate-900 border text-gray-300 mx-2 rounded-[6px] w-7/12 absolute hidden"
+  style="top: 25%;"
+>
+  <h3 class="text-center font-bold text-xl my-2">Create a New Blog</h3>
 
-      <form class="form newBlogForm">
-        <div class="flex flex-col items-center gap-2 my-4">
-          <label class="flex-nowrap font-bold" for="blogTitle">Blog Title:</label>
-          <input
-            class="w-11/12 p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
-            type="text"
-            id="blogTitle"
-            name="blogTitle"
-          />
-        </div>
-        <div class="flex flex-col items-center gap-2 mb-4">
-          <label class="font-bold" for="blogContent">Content:</label>
-          <textarea
-            class="w-11/12 h-64 p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
-            id="blogContent"
-            name="blogContent"
-          ></textarea>
-        </div>
-        <div class="flex flex-col items-center gap-2 mb-4">
-          <label class="flex-nowrap font-bold" for="blogTitle">Blog Tag
-          (Optional):</label>
-        <input
-          class="w-11/12 p-2 my-2 mx-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
-          type="text"
-          id="blogTag"
-          name="blogTag"
-        />
-        </div>
-        <div class="flex justify-center items-center">
-          <button
-            type="submit"
-            class="mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
-          >Post Blog!</button>
-        </div>
-      </form>
-      <div class="flex justify-center items-center mb-2">
-        <button
-          id="closeForm"
-          class="mt-1 font-bold text-md rounded-sm bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
-        >Exit</button>
-      </div>
+  <form class="form newBlogForm">
+    <div class="flex flex-col items-center gap-2 my-4">
+      <label class="flex-nowrap font-bold" for="blogTitle">Blog Title:</label>
+      <input
+        class="w-11/12 p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
+        type="text"
+        id="blogTitle"
+        name="blogTitle"
+      />
     </div>
+    <div class="flex flex-col items-center gap-2 mb-4">
+      <label class="font-bold" for="blogContent">Content:</label>
+      <textarea
+        class="w-11/12 h-64 p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
+        id="blogContent"
+        name="blogContent"
+      ></textarea>
+    </div>
+    <div class="flex flex-col items-center gap-2 mb-4">
+      <label class="flex-nowrap font-bold" for="blogTitle">Blog Tag (Optional):</label>
+      <input
+        class="w-11/12 p-2 my-2 mx-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
+        type="text"
+        id="blogTag"
+        name="blogTag"
+      />
+    </div>
+    <div class="flex justify-center items-center">
+      <button
+        type="submit"
+        class="mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
+      >Post Blog!</button>
+    </div>
+  </form>
+  <div class="flex justify-center items-center mb-2">
+    <button
+      id="closeForm"
+      class="mt-1 font-bold text-md rounded-sm bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
+    >Exit</button>
+  </div>
+</div>
 
-    <script src="/js/blog.js"></script>
+<script src="/js/blog.js"></script>

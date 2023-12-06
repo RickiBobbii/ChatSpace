@@ -30,6 +30,13 @@ router.get("/user/:username", async (req, res) => {
 
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
+    const userBlogs = blogs.map((blog) => {
+      return {
+        isAuthor: blog.user_id === req.session.user_id,
+        ...blog,
+      };
+    });
+
     const chatroomData = await Chatroom.findAll({});
 
     const userData = await User.findByPk(req.session.user_id, {
@@ -53,9 +60,12 @@ router.get("/user/:username", async (req, res) => {
 
     res.render("profile", {
       chatrooms: userChatrooms,
-      blogs: blogs,
+      blogs: userBlogs,
       username: otherUserData[0].username,
       logged_in: req.session.logged_in,
+      currentUser:
+        otherUserData[0].username.toLowerCase() ===
+        req.session.username.toLowerCase(),
     });
   } catch (err) {
     res.status(500).json(err);
@@ -71,7 +81,7 @@ router.get("/profile", async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       where: {
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
       },
       include: [
         {
@@ -82,6 +92,13 @@ router.get("/profile", async (req, res) => {
     });
 
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+    const userBlogs = blogs.map((blog) => {
+      return {
+        isAuthor: blog.user_id === req.session.user_id,
+        ...blog,
+      };
+    });
 
     const chatroomData = await Chatroom.findAll({});
 
@@ -107,9 +124,10 @@ router.get("/profile", async (req, res) => {
 
     res.render("profile", {
       chatrooms: userChatrooms,
-      blogs: blogs,
+      blogs: userBlogs,
       username: user.username,
       logged_in: req.session.logged_in,
+      currentUser: true,
     });
   } catch (err) {
     res.status(500).json(err);
