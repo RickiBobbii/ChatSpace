@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/home");
     } else {
-      // document.querySelector("#loginFail").style.display = "block";
+      document.querySelector("#loginFail").style.display = "block";
       console.log("fail");
     }
   }
@@ -39,7 +39,33 @@ const signupFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace("/home");
       } else {
-        alert(response.statusText);
+        const err = await response.json();
+        switch (err.errors[0].path) {
+          case "email":
+            switch (err.errors[0].type) {
+              case "Validation error":
+                document.querySelector("#loginFail").textContent =
+                  "Please enter a valid email!";
+                document.querySelector("#loginFail").style.display = "block";
+                break;
+              case "unique violation":
+                document.querySelector("#loginFail").textContent =
+                  "That email has already been used to register an account!";
+                document.querySelector("#loginFail").style.display = "block";
+                break;
+            }
+            break;
+          case "password":
+            document.querySelector("#loginFail").textContent =
+              "Please enter a password that is at least 8 characters!";
+            document.querySelector("#loginFail").style.display = "block";
+            break;
+          case "username":
+            document.querySelector("#loginFail").textContent =
+              "That username is already taken!";
+            document.querySelector("#loginFail").style.display = "block";
+            break;
+        }
       }
     }
   } catch (error) {

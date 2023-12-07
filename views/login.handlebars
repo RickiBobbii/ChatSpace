@@ -1,7 +1,12 @@
 <main
   {{! TEST bg image for login }}
-  class="image-container flex h-screen items-center justify-center bg-cover"
+  class="image-container flex h-screen flex-col items-center justify-center bg-cover"
 >
+  <p
+    class="mb-4 p-2 px-4 rounded-full bg-violet-900 text-center text-2xl font-bold italic text-red-600"
+    id="loginFail"
+    style="display: none;"
+  >Incorrect email/password!</p>
 
   {{! TESTING  md:h-screen}}
   <section id="login-card" class="mb-12 w-11/12">
