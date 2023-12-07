@@ -50,7 +50,7 @@ const delBlog = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/testing");
+      document.location.replace("/home");
     } else {
       alert("Failed to delete blog");
     }

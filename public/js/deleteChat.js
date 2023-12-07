@@ -10,7 +10,7 @@ async function deleteChat(event) {
     });
 
     if (response.ok) {
-      document.location.replace("/testing");
+      document.location.replace("/home");
     } else {
       alert("Failed to delete chat");
     }
