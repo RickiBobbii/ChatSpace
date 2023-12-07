@@ -1,5 +1,5 @@
 <div
-  class="bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] bg-[#292240] flex flex-col justify-center items-center"
+  class="bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] bg-[#292240] flex flex-col justify-center items-center h-full"
 >
   <div
     class="bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-xs my-4 px-6 overflow-hidden"
@@ -19,14 +19,14 @@
 
   {{#if blogs.length}}
     <div
-      class="blogList w-3/5 max-w-lg relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-hidden"
+      class="blogList h-3/6 w-3/5 max-w-lg relative bg-[#231f39]/60 rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm mx-2 overflow-scroll overflow-x-hidden"
     >
       <h3 class="text-center font-bold text-xl mb-3 py-3">Everyone's Blogs</h3>
 
       {{#each blogs as |blog|}}
         <div class="flex justify-center">
           <div
-            class="flex justify-between items-center border-2 rounded-md p-2 bg-slate-600 border-slate-600 mb-2 w-11/12"
+            class="flex justify-between items-center border-2 rounded-md p-2 ml-2 bg-slate-600 border-slate-600 mb-2 w-11/12"
           >
             <div>
               <a href="/blog/{{blog.id}}">
