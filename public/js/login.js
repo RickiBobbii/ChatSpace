@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/testing");
+      document.location.replace("/home");
     } else {
       // document.querySelector("#loginFail").style.display = "block";
       console.log("fail");
@@ -37,7 +37,7 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-          document.location.replace('/testing');
+          document.location.replace('/home');
         } else {
           alert(response.statusText);
         }

@@ -43,7 +43,7 @@ const delButtonHandler = async (event) => {
 const createButtonHandler = async (event) => {
   event.preventDefault();
 
-  //TEST hide create button on create form
+  //Hide create button on create form
   const hideBtn = document.querySelector("#hide-btn");
   hideBtn.classList.add("hidden");
   const hideBlogList = document.querySelector(".blogList");

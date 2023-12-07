@@ -2,8 +2,6 @@ const socket = io();
 let username;
 
 document.querySelectorAll(".chatrooms").forEach((chatroom) => {
-  // chatroom.firstElementChild.textContent = capitalize(chatroom);
-
   chatroom.addEventListener("click", async function (e) {
     e.preventDefault();
 
@@ -19,7 +17,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
       document.querySelectorAll(".show").forEach((element) => {
         element.className = "hide";
       });
-      //TEST adding class to chat div, background image
+      //Adding background image to chatroom
       document.querySelector(`#chat${chatroom.id}`).className = "show flex justify-center text-center w-full bg-[url(./assets/images/ai-image-10.jpg)] bg-cover";
     } else {
       socket.emit("exituser", username);
@@ -29,6 +27,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
   });
 });
 
+// Grabbing the users message and communicating with socket.io
 document.querySelectorAll(".send-message").forEach((sendButton) => {
   sendButton.addEventListener("click", function () {
     let message = document.querySelector(".show #message-input").value;
@@ -50,6 +49,7 @@ document.querySelectorAll(".send-message").forEach((sendButton) => {
   });
 });
 
+// On join
 socket.on("userJoined", function (update) {
   renderMessage("userJoined", update);
 });
@@ -58,6 +58,7 @@ socket.on("chat", function (message) {
   renderMessage("other", message);
 });
 
+// Handling all of the html for our chat rooms. This function uses the information sent to or from socket.io
 function renderMessage(type, message) {
   let messageContainer = document.querySelector(".show .messages");
   if (type == "my") {
@@ -95,21 +96,4 @@ function renderMessage(type, message) {
   // scroll chat to end on new message
   messageContainer.scrollTop =
     messageContainer.scrollHeight - messageContainer.clientHeight;
-}
-
-function capitalize(input) {
-  var words = input.textContent.trim().split(" ");
-
-  for (var i = 0; i < words.length; i++) {
-    var word = words[i];
-    if (word) {
-      var firstLetter = word.charAt(0);
-      var firstLetterCap = firstLetter.toUpperCase();
-      var remainingLetters = word.slice(1);
-      var capitalizeWord = firstLetterCap + remainingLetters;
-      words[i] = capitalizeWord;
-    }
-  }
-
-  return words.join(" ");
 }

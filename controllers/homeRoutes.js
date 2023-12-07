@@ -102,7 +102,7 @@ router.get("/profile", async (req, res) => {
 
     const chatroomData = await Chatroom.findAll({});
 
-    //testing find username for render
+    //find username for render
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [{ model: Blog, attributes: ["tag"] }],
@@ -202,7 +202,7 @@ router.get("/blog/:id", async (req, res) => {
   }
 });
 
-router.get("/testing", async (req, res) => {
+router.get("/home", async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login");
     return;
@@ -310,7 +310,7 @@ router.get("/tag/:tag", async (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/testing");
+    res.redirect("/home");
     return;
   }
   res.render("login");
