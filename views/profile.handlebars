@@ -44,6 +44,10 @@
             </div>
           {{/each}}
         </div>
+      {{else}}
+        <p class="text-xl font-semibold text-red-300 p-4 text-center">It looks like you don't
+          have any blogs! <br/> Create a blog and add a tag to start joining
+          chatrooms!</p>
       {{/if}}
       {{#if currentUser}}
         <div class="my-4 flex items-center justify-center">

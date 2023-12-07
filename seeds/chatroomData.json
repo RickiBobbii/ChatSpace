@@ -1,5 +1,9 @@
 [
   {
+    "title": "general chat",
+    "default": true
+  },
+  {
     "title": "movies"
   },
   {
