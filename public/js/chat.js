@@ -19,7 +19,7 @@ document.querySelectorAll(".chatrooms").forEach((chatroom) => {
       document.querySelectorAll(".show").forEach((element) => {
         element.className = "hide";
       });
-      //TEST adding class to chat div, background image
+      //Adding background image to chatroom
       document.querySelector(`#chat${chatroom.id}`).className = "show flex justify-center text-center w-full bg-[url(./assets/images/ai-image-10.jpg)] bg-cover";
     } else {
       socket.emit("exituser", username);

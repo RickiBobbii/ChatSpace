@@ -102,7 +102,7 @@ router.get("/profile", async (req, res) => {
 
     const chatroomData = await Chatroom.findAll({});
 
-    //testing find username for render
+    //find username for render
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [{ model: Blog, attributes: ["tag"] }],
