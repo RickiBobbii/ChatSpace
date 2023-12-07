@@ -726,6 +726,14 @@ video {
   height: 60%;
 }
 
+.h-3\/6 {
+  height: 50%;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-64 {
   height: 16rem;
 }
@@ -736,10 +744,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.max-h-screen {
-  max-height: 100vh;
 }
 
 .min-h-screen {
@@ -1170,10 +1174,6 @@ video {
 
 .pl-2 {
   padding-left: 0.5rem;
-}
-
-.pl-6 {
-  padding-left: 1.5rem;
 }
 
 .text-center {
