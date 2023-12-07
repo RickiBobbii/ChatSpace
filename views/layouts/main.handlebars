@@ -9,10 +9,14 @@
 
   <body class="bg-slate-900 text-gray-300">
     <header
-      class="flex relative lg:justify-end sm:justify-between items-center p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+      class="flex relative lg:justify-end sm:justify-between items-center p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black"
+    >
       <div class="flex absolute chatspace">
         <h1>
-          <a class="text-4xl md:text-5xl font-bold text-violet-100" href="/">ChatSpace</a>
+          <a
+            class="text-4xl md:text-5xl font-bold text-violet-100"
+            href="/"
+          >ChatSpace</a>
         </h1>
       </div>
       <nav class="flex flex-row items-center gap-2 w-full justify-between">
@@ -36,31 +40,45 @@
     </header>
     <div class="flex flex-row h-screen">
       {{#if logged_in}}
-      <div class="fixed top-4 px-2 py-2 cursor-pointer md:hidden w-1/12" id="burger">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-      </div>
+        <div
+          class="fixed top-4 px-2 py-2 cursor-pointer md:hidden w-1/12"
+          id="burger"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </div>
         <aside
           id="menu"
           class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/4 lg:w-2/12 flex flex-col items-center hidden md:flex"
         >
-            {{#if logged_in}}
-              <button
-                class="rounded-md bg-rose-600 p-2 font-bold duration-300 hover:bg-indigo-400 md:hidden my-2"
-              >
-                <a href="/profile">PROFILE</a>
-              </button>
-              <button
-                class="rounded-md bg-rose-600 p-2 font-bold duration-300 hover:bg-indigo-400 md:hidden my-2"
-                id="logout-2"
-              ><a href="/login">LOGOUT</a></button>
-            {{else}}
-              <a
-                class="invisible transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
-                href="/login"
-              >LOGIN</a>
-            {{/if}}
+          {{#if logged_in}}
+            <button
+              class="rounded-md bg-rose-600 p-2 font-bold duration-300 hover:bg-indigo-400 md:hidden my-2"
+            >
+              <a href="/profile">PROFILE</a>
+            </button>
+            <button
+              class="rounded-md bg-rose-600 p-2 font-bold duration-300 hover:bg-indigo-400 md:hidden my-2"
+              id="logout-2"
+            ><a href="/login">LOGOUT</a></button>
+          {{else}}
+            <a
+              class="invisible transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
+              href="/login"
+            >LOGIN</a>
+          {{/if}}
           {{#each chatrooms as |chatroom|}}
             {{#if chatroom.userHasTag}}
               <a class="chatrooms w-9/12" id="{{id}}">
@@ -73,9 +91,9 @@
         </aside>
       {{/if}}
       <main class="w-full mx-auto flex justify-center">
-      <div id="main" class="show w-full">
-        {{{body}}}
-      </div>
+        <div id="main" class="show w-full">
+          {{{body}}}
+        </div>
         {{> chatrooms}}
         {{!-- blog creation partial --}}
         {{> createBlog}}

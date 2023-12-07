@@ -89,10 +89,9 @@ router.delete("/comment/:id", async (req, res) => {
 });
 
 //GET all blogs
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const blogData = await Blog.findAll({
-    });
+    const blogData = await Blog.findAll({});
     res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
@@ -100,13 +99,13 @@ router.get('/', async (req, res) => {
 });
 
 //GET blog by id
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User }],
     });
     if (!blogData) {
-      res.status(404).json({ message: 'No Blog found with that id!' });
+      res.status(404).json({ message: "No Blog found with that id!" });
       return;
     }
     res.status(200).json(blogData);
