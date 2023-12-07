@@ -9,11 +9,11 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [Screenshot](#screenshot)
+- [Demo](#demo)
 - [Application link](#application-link)
 - [Contribute](#contribute)
 - [License](#license)
-- [Questions](#questions)
+- [Questions](#questions-for-the-authors)
 
 ## Description
 
@@ -80,9 +80,9 @@
 
 
 
-## Screenshot
+## Demo
 
-![](./public/css/assets/images/logins-screenshot.png)
+![site_demo](./public/css/assets/images/chatspace-readme.gif)
 
 ## Application link
 
