@@ -16,8 +16,8 @@
           class="my-5 text-center text-xl uppercase text-slate-300"
         >Blogs:</h2>
       {{/if}}
-      {{#if blogs.length}}
-        <div class="blogList">
+      <div class="blogList">
+        {{#if blogs.length}}
           {{#each blogs as |blog|}}
             <div class="flex justify-center">
               <div
@@ -43,12 +43,13 @@
               </div>
             </div>
           {{/each}}
-        </div>
-      {{else}}
-        <p class="text-xl font-semibold text-red-300 p-4 text-center">It looks like you don't
-          have any blogs! <br/> Create a blog and add a tag to start joining
-          chatrooms!</p>
-      {{/if}}
+        {{else}}
+          <p class="p-4 text-center text-xl font-semibold text-red-300">It looks
+            like you don't have any blogs!
+            <br />
+            Create a blog and add a tag to start joining chatrooms!</p>
+        {{/if}}
+      </div>
       {{#if currentUser}}
         <div class="my-4 flex items-center justify-center">
           <button
