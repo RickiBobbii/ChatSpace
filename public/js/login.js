@@ -57,7 +57,7 @@ const signupFormHandler = async (event) => {
             break;
           case "password":
             document.querySelector("#loginFail").textContent =
-              "Please enter a password that is at least 8 characters!";
+              "Please enter a password that is at least 4 characters!";
             document.querySelector("#loginFail").style.display = "block";
             break;
           case "username":
