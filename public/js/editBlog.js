@@ -1,11 +1,14 @@
 const displayForm = (e) => {
   e.preventDefault();
   const editForm = document.querySelector(".editBlogForm");
+  const comments = document.querySelector("#commentSection");
 
   if (editForm.style.display === "none") {
     editForm.style.display = "block";
+    comments.style.visibility = "hidden";
   } else {
     editForm.style.display = "none";
+    comments.style.visibility = "visible";
   }
 };
 
