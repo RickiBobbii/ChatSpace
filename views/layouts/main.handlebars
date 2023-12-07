@@ -18,12 +18,12 @@
       <nav class="flex flex-row items-center gap-2 w-full justify-between">
         {{#if logged_in}}
           <button
-            class="rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400 hidden md:flex"
           >
             <a href="/profile">PROFILE</a>
           </button>
           <button
-            class="rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
+            class="rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400 hidden md:flex"
             id="logout"
           ><a href="/login">LOGOUT</a></button>
         {{else}}
@@ -38,10 +38,37 @@
     {{!-- TEST full height --}}
     <div class="flex flex-row h-screen">
       {{#if logged_in}}
+      {{!-- TEST mobile burger menu --}}
+      <div class="px-2 py-2 cursor-pointer md:hidden w-1/12" id="burger">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+
+      </div>
         <aside
-        {{!-- TEST mobile hidden  hidden lg:block--}}
-          class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/12 flex flex-col items-center"
+        {{!-- TEST mobile hidden  hidden lg:flex      made lg:w-2/12 and w-1/3 for smaller  position absolute on md--}}
+          id="menu"
+          class="h-screen bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-sky-50 rounded-sm w-2/4 lg:w-2/12 flex flex-col items-center hidden md:flex"
         >
+        {{!-- TEST mobile profile and logout , md:hidden md:flex------------------------------------}}
+            {{#if logged_in}}
+              <button
+                class="rounded-md bg-rose-600 p-2 font-bold duration-300 hover:bg-indigo-400 md:hidden md:flex my-2"
+              >
+                <a href="/profile">PROFILE</a>
+              </button>
+              <button
+                class="rounded-md bg-rose-600 p-2 font-bold duration-300 hover:bg-indigo-400 md:flex my-2"
+                id="logout"
+              ><a href="/login">LOGOUT</a></button>
+            {{else}}
+              <a
+                {{! TESTING set button to invisible for login screen, not really needed if invisible and reroute to login page }}
+                class="invisible transform rounded-md bg-violet-900 p-2 font-bold duration-300 hover:bg-indigo-400"
+                href="/login"
+              >LOGIN</a>
+            {{/if}}
+        {{!-- TEST END --------------------------------------------------------------}}
           {{#each chatrooms as |chatroom|}}
             {{#if chatroom.userHasTag}}
               <a class="chatrooms w-9/12" id="{{id}}">
@@ -70,6 +97,7 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/chat.js"></script>
+    <script src="/js/menu.js"></script>
   </body>
 
 </html>
