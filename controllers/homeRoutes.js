@@ -72,7 +72,7 @@ router.get("/user/:username", async (req, res) => {
   }
 });
 
-// logged in user route
+// logged in user route from the Profile button on the main layout
 router.get("/profile", async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login");

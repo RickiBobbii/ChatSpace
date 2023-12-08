@@ -1,3 +1,4 @@
+{{!-- form moved from the main layout to a partial so it can be hidden and called all across the site, by default is hidden, "style= top: 25%" moved partila from being stuck at top of screen --}}
 <div
   class="createBlogForm w-3/5 max-w-lg bg-[#231f39] rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm my-5 p-6 absolute hidden"
   style="top: 25%;"
@@ -38,6 +39,7 @@
       >Post Blog!</button>
     </div>
   </form>
+  {{!-- button incase user changes their mind --}}
   <div class="flex justify-center items-center mb-2">
     <button
       id="closeForm"

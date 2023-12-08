@@ -40,6 +40,7 @@ const delButtonHandler = async (event) => {
   }
 };
 
+// functions to show and hide the create blog partial
 const createButtonHandler = async (event) => {
   event.preventDefault();
 
