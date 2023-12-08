@@ -1,49 +1,48 @@
 {{!-- form moved from the main layout to a partial so it can be hidden and called all across the site, by default is hidden, "style= top: 25%" moved partila from being stuck at top of screen --}}
 <div
-  class="createBlogForm w-3/5 max-w-lg bg-[#231f39] rounded-[6px] shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm my-5 p-6 absolute hidden"
+  class="createBlogForm absolute my-5 hidden w-3/5 max-w-lg rounded-[6px] bg-[#231f39] p-6 shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm"
   style="top: 25%;"
 >
-  <h3 class="text-center font-bold text-xl my-2">Create a New Blog</h3>
+  <h3 class="my-2 text-center text-xl font-bold">Create a New Blog</h3>
 
   <form class="form newBlogForm">
-    <div class="flex flex-col items-center gap-2 my-4">
+    <div class="my-4 flex flex-col items-center gap-2">
       <label class="flex-nowrap font-bold" for="blogTitle">Blog Title:</label>
       <input
-        class="w-11/12 p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
+        class="bg-slate-0 my-2 w-11/12 rounded-md border-2 p-2 text-slate-800 focus:outline-none"
         type="text"
         id="blogTitle"
         name="blogTitle"
       />
     </div>
-    <div class="flex flex-col items-center gap-2 mb-4">
+    <div class="mb-4 flex flex-col items-center gap-2">
       <label class="font-bold" for="blogContent">Content:</label>
       <textarea
-        class="w-11/12 h-64 p-2 my-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
+        class="bg-slate-0 my-2 h-64 w-11/12 rounded-md border-2 p-2 text-slate-800 focus:outline-none"
         id="blogContent"
         name="blogContent"
       ></textarea>
     </div>
-    <div class="flex flex-col items-center gap-2 mb-4">
+    <div class="mb-4 flex flex-col items-center gap-2">
       <label class="flex-nowrap font-bold" for="blogTitle">ChatRoom Tag:</label>
       <input
-        class="w-11/12 p-2 my-2 mx-2 bg-slate-0 rounded-md border-2 focus:outline-none text-slate-800"
+        class="bg-slate-0 mx-2 my-2 w-11/12 rounded-md border-2 p-2 text-slate-800 focus:outline-none"
         type="text"
         id="blogTag"
         name="blogTag"
       />
     </div>
-    <div class="flex justify-center items-center">
+    <div class="flex items-center justify-center">
       <button
         type="submit"
-        class="mt-2 font-bold text-md rounded-sm bg-slate-400 p-3 text-slate-800 duration-300 hover:bg-indigo-200"
+        class="text-md mt-2 rounded-sm bg-slate-400 p-3 font-bold text-slate-800 duration-300 hover:bg-indigo-200"
       >Post Blog!</button>
     </div>
   </form>
-  {{!-- button incase user changes their mind --}}
-  <div class="flex justify-center items-center mb-2">
+  <div class="mb-2 flex items-center justify-center">
     <button
       id="closeForm"
-      class="mt-1 font-bold text-md rounded-sm bg-slate-400 p-2 text-slate-800 duration-300 hover:bg-indigo-200"
+      class="text-md mt-1 rounded-sm bg-slate-400 p-2 font-bold text-slate-800 duration-300 hover:bg-indigo-200"
     >Exit</button>
   </div>
 </div>

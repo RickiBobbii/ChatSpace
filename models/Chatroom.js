@@ -15,6 +15,10 @@ Chatroom.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    default: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    }
   },
   {
     hooks: {
