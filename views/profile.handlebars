@@ -1,5 +1,7 @@
+{{!-- added bg-cover to stop background from repeating at larger screens --}}
+{{!-- wallpaper found from tailwind component --}}
 <div
-  class="flex min-h-screen items-center justify-center bg-[#292240] bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] text-[#9e9cb6]"
+  class="flex min-h-screen items-center justify-center bg-cover bg-[#292240] bg-[url(https://neluttu.github.io/pro-profile/wallpaper.jpg)] text-[#9e9cb6]"
 >
   <section
     class="relative mx-2 w-3/5 max-w-lg overflow-hidden rounded-[6px] bg-[#231f39]/60 shadow-[0px_15px_39px_16px_rgba(52,45,91,0.65)] backdrop-blur-sm"
@@ -8,6 +10,7 @@
       class="my-3 text-center text-2xl uppercase text-slate-300"
     >{{username}}'s Page</h2>
     <div>
+      {{!-- UX feature for blog list --}}
       {{#if currentUser}}
         <h2 class="my-5 text-center text-xl uppercase text-slate-300">Your
           Blogs:</h2>
